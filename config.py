@@ -11,6 +11,7 @@ config.py
    00_inspect_data.py 를 먼저 실행해서 실제 컬럼명을 보고 맞춰야 함.
 """
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -22,7 +23,7 @@ from pathlib import Path
 #      outputs_verify/  ← 이 파이프라인이 만드는 중간·결과 파일
 # ------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent
-DATA_DIR = Path("/Users/hyowon/Desktop/2.2test/mfed")
+DATA_DIR = Path(os.environ.get("FOMC_DATA_DIR", ROOT))   # 기본: 스크립트와 같은 폴더. 다른 곳이면 FOMC_DATA_DIR로 지정
 ZQ_DIR = DATA_DIR / "zq"
 OUT_DIR = ROOT / "outputs_verify"
 OUT_DIR.mkdir(exist_ok=True)
