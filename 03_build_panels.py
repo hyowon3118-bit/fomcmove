@@ -63,9 +63,27 @@ for h in HS:
 # ------------------------------------------------------------------
 # [블록 4] 차분 변수 (A4: 수준이 아닌 변화로 분석)
 # ------------------------------------------------------------------
+#   [수정 2026-11-09] Kalshi 차분은 '같은 계약' 안에서 먼저 계산한 뒤 h를 붙임
+#   - 이전 방식(h열 안에서 차분 후 계약 바뀌는 날 제거)은 FOMC 당일을 전부 결측으로 만듦
+#     (당일 h=1이 다음 회의로 바뀌기 때문)
+#   - 새 방식: Δ(t) = 같은 회의 계약의 [t 종가 − 직전 거래일 종가], h는 t 기준
+#     → FOMC 당일엔 '다음 회의 계약'의 전날 대비 변화가 들어감
+#     (DKW 2026 Table 5: "meetings more than one month ahead, end of previous day to end of release day")
+#   - 직전 '거래일'(2년물 거래일 기준) 값이 없으면 결측 처리
+tdays = daily.index
+prev_td = pd.Series(tdays[:-1], index=tdays[1:])                     # 거래일 → 직전 거래일
+kd = kalshi[kalshi["date"].isin(tdays)].sort_values(["meeting", "date"]).copy()
+prev_obs = kd.groupby("meeting")["date"].shift()                     # 같은 계약의 직전 관측일
+valid = prev_obs.eq(kd["date"].map(prev_td))                          # 직전 관측일 = 직전 거래일인지
+for v in k_vals:
+    kd[f"d_{v}"] = kd.groupby("meeting")[v].diff().where(valid)
 for h in HS:
+    sub = U.select_horizon(kd, h, [f"d_{v}" for v in k_vals], "tmp")
     for v in k_vals:
-        daily[f"d_k_{v}_h{h}"] = U.diff_within_meeting(daily, f"k_{v}_h{h}", f"k_meeting_h{h}")
+        daily[f"d_k_{v}_h{h}"] = sub[f"tmp_d_{v}_h{h}"]
+    n_f = daily.loc[daily.index.isin(fomc_dates), f"d_k_std_bp_h{h}"].notna().sum()
+    log.info(f"h={h}: Δstd 비결측 {daily[f'd_k_std_bp_h{h}'].notna().sum()}일 (그중 FOMC 당일 {n_f}일)")
+for h in HS:
     if fw is not None:
         daily[f"d_fw_std_h{h}"] = U.diff_within_meeting(daily, f"fw_fw_std_bp_h{h}", f"fw_meeting_h{h}")
 daily["d_move"] = daily["move"].diff()

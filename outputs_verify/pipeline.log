@@ -1,556 +1,343 @@
-18:39:52 [INFO] 00b_fomc | === STEP 00b: FOMC 회의일 수집 시작 ===
-18:39:52 [INFO] 00b_fomc | Fed 웹사이트 접속 중...
-18:39:53 [INFO] 00b_fomc | 가져온 회의 57건, 상태별: {'Scheduled': 56, 'Notation Vote': 1}
-18:39:53 [INFO] 00b_fomc | 저장: /Users/hyowon/Desktop/2.2test/mfed/fomc_dates.csv (56건, 2021-01-27 ~ 2027-12-08)
-18:39:53 [WARNING] 00b_fomc | 2028-01 회의가 없음 → 아직 일정 미발표일 수 있음. KXFED-28JAN 등은 00a에서 제외됨
-18:39:53 [INFO] 00b_fomc | === STEP 00b 완료 ===
-18:40:24 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:40:24 [ERROR] run_all | 00 Kalshi 확률분포 → 모멘트 변환 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 290, in run_path
-  File "<frozen runpy>", line 254, in _get_code_from_file
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/hyowon/Desktop/2.2test/mfed/00a_build_kalshi_moments.py'
-18:41:21 [INFO] 00b_fomc | === STEP 00b: FOMC 회의일 수집 시작 ===
-18:41:21 [INFO] 00b_fomc | Fed 웹사이트 접속 중...
-18:41:22 [INFO] 00b_fomc | 가져온 회의 57건, 상태별: {'Scheduled': 56, 'Notation Vote': 1}
-18:41:22 [INFO] 00b_fomc | 저장: /Users/hyowon/Desktop/2.2test/mfed/fomc_dates.csv (56건, 2021-01-27 ~ 2027-12-08)
-18:41:22 [WARNING] 00b_fomc | 2028-01 회의가 없음 → 아직 일정 미발표일 수 있음. KXFED-28JAN 등은 00a에서 제외됨
-18:41:22 [INFO] 00b_fomc | === STEP 00b 완료 ===
-18:41:22 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:41:23 [ERROR] run_all | 00 Kalshi 확률분포 → 모멘트 변환 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/00a_build_kalshi_moments.py", line 20, in <module>
-    import utils as U
-ModuleNotFoundError: No module named 'utils'
-18:42:40 [INFO] 00b_fomc | === STEP 00b: FOMC 회의일 수집 시작 ===
-18:42:40 [INFO] 00b_fomc | Fed 웹사이트 접속 중...
-18:42:40 [INFO] 00b_fomc | 가져온 회의 57건, 상태별: {'Scheduled': 56, 'Notation Vote': 1}
-18:42:40 [INFO] 00b_fomc | 저장: /Users/hyowon/Desktop/2.2test/mfed/fomc_dates.csv (56건, 2021-01-27 ~ 2027-12-08)
-18:42:40 [WARNING] 00b_fomc | 2028-01 회의가 없음 → 아직 일정 미발표일 수 있음. KXFED-28JAN 등은 00a에서 제외됨
-18:42:40 [INFO] 00b_fomc | === STEP 00b 완료 ===
-18:42:41 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:43:07 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
-18:43:07 [ERROR] run_all | 00 Kalshi 확률분포 → 모멘트 변환 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/00a_build_kalshi_moments.py", line 32, in <module>
-    raw = pd.read_csv(SRC, parse_dates=["date"])
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-    return _read(filepath_or_buffer, kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-    self._engine = self._make_engine(f, self.engine)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
-    self.handles = get_handle(
-                   ^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/common.py", line 873, in get_handle
-    handle = open(
-             ^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/hyowon/Desktop/2.2test/mfed/daily_distributions_fed_levels.csv'
-18:45:57 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:45:59 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
-18:45:59 [INFO] 00a_kalshi | 원자료 84,114행, 계약 52개, 2021-07-02 ~ 2026-11-01
-18:45:59 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:45:59 [WARNING] 00a_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
-18:45:59 [INFO] 00a_kalshi | 회의 매칭 후 84,082행, 회의 51개
-18:46:00 [INFO] 00a_kalshi | 모멘트 7,672행 생성. std=0(왜도·첨도 NaN) 77행
-18:46:00 [INFO] 00a_kalshi | std_bp 요약: 평균 22.92, 중앙값 21.63, 최대 110.00
-18:46:00 [INFO] 00a_kalshi | 저장: kalshi_fomc_moments.csv
-18:46:00 [INFO] 00a_kalshi | === STEP 00a 완료 ===
-18:46:00 [INFO] run_all | [1/10] ✔ 00 완료 (3.2초)
-18:46:00 [INFO] run_all | [2/10] ▶ 00 입력 파일 점검 시작
-18:46:00 [INFO] 00_inspect | === STEP 00: 입력 파일 점검 시작 ===
-18:46:00 [INFO] 00_inspect | kalshi     OK   kalshi_fomc_moments.csv
-18:46:00 [INFO] 00_inspect | fomc       OK   fomc_dates.csv
-18:46:00 [INFO] 00_inspect | dgs2       없음   DGS2.csv
-18:46:00 [INFO] 00_inspect | move       OK   MOVE.csv
-18:46:00 [INFO] 00_inspect | usmpd      OK   USMPD.xlsx
-18:46:00 [INFO] 00_inspect | dfedtarl   없음   DFEDTARL.csv
-18:46:00 [INFO] 00_inspect | dfedtaru   없음   DFEDTARU.csv
-18:46:00 [INFO] 00_inspect | cme_fw     없음   cme_fedwatch_official.csv
-18:46:00 [INFO] 00_inspect | vix        OK   VIXCLS.csv
-18:46:00 [INFO] 00_inspect | ZQ 월물 파일: 0개 
-18:46:00 [INFO] 00_inspect | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
-18:46:00 [INFO] 00_inspect | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
-18:46:00 [INFO] 00_inspect | [fomc] 컬럼: ['date']
-18:46:00 [INFO] 00_inspect | [fomc] 첫 행: {'date': '2021-01-27'}
-18:46:00 [INFO] 00_inspect | [move] 컬럼: ['날짜', '종가', '시가', '고가', '저가', '거래량', '변동 %']
-18:46:00 [INFO] 00_inspect | [move] 첫 행: {'날짜': '2026- 10- 28', '종가': 94.55, '시가': 97.87, '고가': 97.87, '저가': 92.88, '거래량': nan, '변동 %': '-3.39%'}
-18:46:00 [INFO] 00_inspect | [vix] 컬럼: ['observation_date', 'VIXCLS']
-18:46:00 [INFO] 00_inspect | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
-18:46:00 [INFO] 00_inspect | [USMPD] 시트 목록: ['README', 'Statements', 'Press Conferences', 'Monetary Events', 'Minutes']
-18:46:00 [INFO] 00_inspect | [USMPD:README] 컬럼(2개): ['Unnamed: 0', 'Unnamed: 1']
-18:46:00 [INFO] 00_inspect | [USMPD:Statements] 컬럼(36개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:46:00 [INFO] 00_inspect | [USMPD:Press Conferences] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:46:00 [INFO] 00_inspect | [USMPD:Monetary Events] 컬럼(37개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'PC', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:46:00 [INFO] 00_inspect | [USMPD:Minutes] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:46:00 [INFO] 00_inspect | === STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===
-18:46:00 [INFO] run_all | [2/10] ✔ 00 완료 (0.2초)
-18:46:00 [INFO] run_all | [3/10] 01 pyfedwatch 확률 재계산: USE_FEDWATCH=False → 건너뜀
-18:46:00 [INFO] run_all | [4/10] 02 T0 재현 검증: USE_FEDWATCH=False → 건너뜀
-18:46:00 [INFO] run_all | [5/10] ▶ 03 분석 패널 생성 시작
-18:46:00 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
-18:46:00 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:46:00 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
-18:46:00 [ERROR] run_all | 03 분석 패널 생성 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/03_build_panels.py", line 28, in <module>
-    dgs2 = U.load_dgs2()
-           ^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 79, in load_dgs2
-    df = read_fred_csv(C.FILES["dgs2"], "dgs2")
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 24, in read_fred_csv
-    df = pd.read_csv(path)
-         ^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-    return _read(filepath_or_buffer, kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-    self._engine = self._make_engine(f, self.engine)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
-    self.handles = get_handle(
-                   ^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/common.py", line 873, in get_handle
-    handle = open(
-             ^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/hyowon/Desktop/2.2test/mfed/DGS2.csv'
-18:47:59 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:48:01 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
-18:48:01 [INFO] 00a_kalshi | 원자료 84,114행, 계약 52개, 2021-07-02 ~ 2026-11-01
-18:48:01 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:48:01 [WARNING] 00a_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
-18:48:01 [INFO] 00a_kalshi | 회의 매칭 후 84,082행, 회의 51개
-18:48:02 [INFO] 00a_kalshi | 모멘트 7,672행 생성. std=0(왜도·첨도 NaN) 77행
-18:48:02 [INFO] 00a_kalshi | std_bp 요약: 평균 22.92, 중앙값 21.63, 최대 110.00
-18:48:02 [INFO] 00a_kalshi | 저장: kalshi_fomc_moments.csv
-18:48:02 [INFO] 00a_kalshi | === STEP 00a 완료 ===
-18:48:02 [INFO] run_all | [1/10] ✔ 00 완료 (3.3초)
-18:48:02 [INFO] run_all | [2/10] ▶ 00 입력 파일 점검 시작
-18:48:02 [INFO] 00_inspect | === STEP 00: 입력 파일 점검 시작 ===
-18:48:02 [INFO] 00_inspect | kalshi     OK   kalshi_fomc_moments.csv
-18:48:02 [INFO] 00_inspect | fomc       OK   fomc_dates.csv
-18:48:02 [INFO] 00_inspect | dgs2       OK   DGS2.xlsx
-18:48:02 [INFO] 00_inspect | move       OK   MOVE.csv
-18:48:02 [INFO] 00_inspect | usmpd      OK   USMPD.xlsx
-18:48:02 [INFO] 00_inspect | dfedtarl   없음   DFEDTARL.csv
-18:48:02 [INFO] 00_inspect | dfedtaru   없음   DFEDTARU.csv
-18:48:02 [INFO] 00_inspect | cme_fw     없음   cme_fedwatch_official.csv
-18:48:02 [INFO] 00_inspect | vix        OK   VIXCLS.csv
-18:48:02 [INFO] 00_inspect | ZQ 월물 파일: 0개 
-18:48:02 [INFO] 00_inspect | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
-18:48:02 [INFO] 00_inspect | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
-18:48:02 [INFO] 00_inspect | [fomc] 컬럼: ['date']
-18:48:02 [INFO] 00_inspect | [fomc] 첫 행: {'date': '2021-01-27'}
-18:48:02 [INFO] 00_inspect | [move] 컬럼: ['날짜', '종가', '시가', '고가', '저가', '거래량', '변동 %']
-18:48:02 [INFO] 00_inspect | [move] 첫 행: {'날짜': '2026- 10- 28', '종가': 94.55, '시가': 97.87, '고가': 97.87, '저가': 92.88, '거래량': nan, '변동 %': '-3.39%'}
-18:48:02 [INFO] 00_inspect | [vix] 컬럼: ['observation_date', 'VIXCLS']
-18:48:02 [INFO] 00_inspect | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
-18:48:03 [INFO] 00_inspect | [USMPD] 시트 목록: ['README', 'Statements', 'Press Conferences', 'Monetary Events', 'Minutes']
-18:48:03 [INFO] 00_inspect | [USMPD:README] 컬럼(2개): ['Unnamed: 0', 'Unnamed: 1']
-18:48:03 [INFO] 00_inspect | [USMPD:Statements] 컬럼(36개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:48:03 [INFO] 00_inspect | [USMPD:Press Conferences] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:48:03 [INFO] 00_inspect | [USMPD:Monetary Events] 컬럼(37개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'PC', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:48:03 [INFO] 00_inspect | [USMPD:Minutes] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:48:03 [INFO] 00_inspect | === STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===
-18:48:03 [INFO] run_all | [2/10] ✔ 00 완료 (0.2초)
-18:48:03 [INFO] run_all | [3/10] 01 pyfedwatch 확률 재계산: USE_FEDWATCH=False → 건너뜀
-18:48:03 [INFO] run_all | [4/10] 02 T0 재현 검증: USE_FEDWATCH=False → 건너뜀
-18:48:03 [INFO] run_all | [5/10] ▶ 03 분석 패널 생성 시작
-18:48:03 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
-18:48:03 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:48:03 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
-18:48:03 [ERROR] run_all | 03 분석 패널 생성 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/03_build_panels.py", line 28, in <module>
-    dgs2 = U.load_dgs2()
-           ^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 79, in load_dgs2
-    df = read_fred_csv(C.FILES["dgs2"], "dgs2")
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 24, in read_fred_csv
-    df = pd.read_csv(path)
-         ^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-    return _read(filepath_or_buffer, kwds)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-    self._engine = self._make_engine(f, self.engine)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/readers.py", line 1898, in _make_engine
-    return mapping[engine](f, **self.options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 93, in __init__
-    self._reader = parsers.TextReader(src, **kwds)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "parsers.pyx", line 574, in pandas._libs.parsers.TextReader.__cinit__
-  File "parsers.pyx", line 663, in pandas._libs.parsers.TextReader._get_header
-  File "parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
-  File "parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
-  File "parsers.pyx", line 2053, in pandas._libs.parsers.raise_parser_error
-UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 15-16: invalid continuation byte
-18:49:18 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:49:20 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
-18:49:20 [INFO] 00a_kalshi | 원자료 84,114행, 계약 52개, 2021-07-02 ~ 2026-11-01
-18:49:20 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:49:20 [WARNING] 00a_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
-18:49:20 [INFO] 00a_kalshi | 회의 매칭 후 84,082행, 회의 51개
-18:49:21 [INFO] 00a_kalshi | 모멘트 7,672행 생성. std=0(왜도·첨도 NaN) 77행
-18:49:21 [INFO] 00a_kalshi | std_bp 요약: 평균 22.92, 중앙값 21.63, 최대 110.00
-18:49:21 [INFO] 00a_kalshi | 저장: kalshi_fomc_moments.csv
-18:49:21 [INFO] 00a_kalshi | === STEP 00a 완료 ===
-18:49:21 [INFO] run_all | [1/10] ✔ 00 완료 (3.2초)
-18:49:21 [INFO] run_all | [2/10] ▶ 00 입력 파일 점검 시작
-18:49:21 [INFO] 00_inspect | === STEP 00: 입력 파일 점검 시작 ===
-18:49:21 [INFO] 00_inspect | kalshi     OK   kalshi_fomc_moments.csv
-18:49:21 [INFO] 00_inspect | fomc       OK   fomc_dates.csv
-18:49:21 [INFO] 00_inspect | dgs2       OK   DGS2.csv
-18:49:21 [INFO] 00_inspect | move       OK   MOVE.csv
-18:49:21 [INFO] 00_inspect | usmpd      OK   USMPD.xlsx
-18:49:21 [INFO] 00_inspect | dfedtarl   없음   DFEDTARL.csv
-18:49:21 [INFO] 00_inspect | dfedtaru   없음   DFEDTARU.csv
-18:49:21 [INFO] 00_inspect | cme_fw     없음   cme_fedwatch_official.csv
-18:49:21 [INFO] 00_inspect | vix        OK   VIXCLS.csv
-18:49:21 [INFO] 00_inspect | ZQ 월물 파일: 0개 
-18:49:21 [INFO] 00_inspect | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
-18:49:21 [INFO] 00_inspect | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
-18:49:21 [INFO] 00_inspect | [fomc] 컬럼: ['date']
-18:49:21 [INFO] 00_inspect | [fomc] 첫 행: {'date': '2021-01-27'}
-18:49:21 [INFO] 00_inspect | [dgs2] 컬럼: ['observation_date', 'DGS2']
-18:49:21 [INFO] 00_inspect | [dgs2] 첫 행: {'observation_date': '2021-11-01', 'DGS2': 0.5}
-18:49:21 [INFO] 00_inspect | [move] 컬럼: ['날짜', '종가', '시가', '고가', '저가', '거래량', '변동 %']
-18:49:21 [INFO] 00_inspect | [move] 첫 행: {'날짜': '2026- 10- 28', '종가': 94.55, '시가': 97.87, '고가': 97.87, '저가': 92.88, '거래량': nan, '변동 %': '-3.39%'}
-18:49:21 [INFO] 00_inspect | [vix] 컬럼: ['observation_date', 'VIXCLS']
-18:49:21 [INFO] 00_inspect | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
-18:49:21 [INFO] 00_inspect | [USMPD] 시트 목록: ['README', 'Statements', 'Press Conferences', 'Monetary Events', 'Minutes']
-18:49:21 [INFO] 00_inspect | [USMPD:README] 컬럼(2개): ['Unnamed: 0', 'Unnamed: 1']
-18:49:21 [INFO] 00_inspect | [USMPD:Statements] 컬럼(36개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:49:21 [INFO] 00_inspect | [USMPD:Press Conferences] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:49:21 [INFO] 00_inspect | [USMPD:Monetary Events] 컬럼(37개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'PC', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:49:21 [INFO] 00_inspect | [USMPD:Minutes] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:49:21 [INFO] 00_inspect | === STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===
-18:49:21 [INFO] run_all | [2/10] ✔ 00 완료 (0.2초)
-18:49:21 [INFO] run_all | [3/10] 01 pyfedwatch 확률 재계산: USE_FEDWATCH=False → 건너뜀
-18:49:21 [INFO] run_all | [4/10] 02 T0 재현 검증: USE_FEDWATCH=False → 건너뜀
-18:49:21 [INFO] run_all | [5/10] ▶ 03 분석 패널 생성 시작
-18:49:21 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
-18:49:21 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:49:21 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
-18:49:21 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
-18:49:21 [ERROR] run_all | 03 분석 패널 생성 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/03_build_panels.py", line 29, in <module>
-    move = U.load_move()
-           ^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 90, in load_move
-    df = raw[[C.MOVE_COLS["date"], C.MOVE_COLS["value"]]].copy()
-         ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/frame.py", line 4108, in __getitem__
-    indexer = self.columns._get_indexer_strict(key, "columns")[1]
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
-    self._raise_if_missing(keyarr, indexer, axis_name)
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6249, in _raise_if_missing
-    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
-KeyError: "None of [Index(['Date', 'Close'], dtype='object')] are in the [columns]"
-18:51:42 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
-18:51:44 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
-18:51:44 [INFO] 00a_kalshi | 원자료 84,114행, 계약 52개, 2021-07-02 ~ 2026-11-01
-18:51:44 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:51:44 [WARNING] 00a_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
-18:51:44 [INFO] 00a_kalshi | 회의 매칭 후 84,082행, 회의 51개
-18:51:45 [INFO] 00a_kalshi | 모멘트 7,672행 생성. std=0(왜도·첨도 NaN) 77행
-18:51:45 [INFO] 00a_kalshi | std_bp 요약: 평균 22.92, 중앙값 21.63, 최대 110.00
-18:51:45 [INFO] 00a_kalshi | 저장: kalshi_fomc_moments.csv
-18:51:45 [INFO] 00a_kalshi | === STEP 00a 완료 ===
-18:51:45 [INFO] run_all | [1/10] ✔ 00 완료 (3.3초)
-18:51:45 [INFO] run_all | [2/10] ▶ 00 입력 파일 점검 시작
-18:51:45 [INFO] 00_inspect | === STEP 00: 입력 파일 점검 시작 ===
-18:51:45 [INFO] 00_inspect | kalshi     OK   kalshi_fomc_moments.csv
-18:51:45 [INFO] 00_inspect | fomc       OK   fomc_dates.csv
-18:51:45 [INFO] 00_inspect | dgs2       OK   DGS2.csv
-18:51:45 [INFO] 00_inspect | move       OK   MOVE.csv
-18:51:45 [INFO] 00_inspect | usmpd      OK   USMPD.xlsx
-18:51:45 [INFO] 00_inspect | dfedtarl   없음   DFEDTARL.csv
-18:51:45 [INFO] 00_inspect | dfedtaru   없음   DFEDTARU.csv
-18:51:45 [INFO] 00_inspect | cme_fw     없음   cme_fedwatch_official.csv
-18:51:45 [INFO] 00_inspect | vix        OK   VIXCLS.csv
-18:51:45 [INFO] 00_inspect | ZQ 월물 파일: 0개 
-18:51:45 [INFO] 00_inspect | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
-18:51:45 [INFO] 00_inspect | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
-18:51:45 [INFO] 00_inspect | [fomc] 컬럼: ['date']
-18:51:45 [INFO] 00_inspect | [fomc] 첫 행: {'date': '2021-01-27'}
-18:51:45 [INFO] 00_inspect | [dgs2] 컬럼: ['observation_date', 'DGS2']
-18:51:45 [INFO] 00_inspect | [dgs2] 첫 행: {'observation_date': '2021-11-01', 'DGS2': 0.5}
-18:51:45 [INFO] 00_inspect | [move] 컬럼: ['날짜', '종가', '시가', '고가', '저가', '거래량', '변동 %']
-18:51:45 [INFO] 00_inspect | [move] 첫 행: {'날짜': '2026- 10- 28', '종가': 94.55, '시가': 97.87, '고가': 97.87, '저가': 92.88, '거래량': nan, '변동 %': '-3.39%'}
-18:51:45 [INFO] 00_inspect | [vix] 컬럼: ['observation_date', 'VIXCLS']
-18:51:45 [INFO] 00_inspect | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
-18:51:45 [INFO] 00_inspect | [USMPD] 시트 목록: ['README', 'Statements', 'Press Conferences', 'Monetary Events', 'Minutes']
-18:51:45 [INFO] 00_inspect | [USMPD:README] 컬럼(2개): ['Unnamed: 0', 'Unnamed: 1']
-18:51:45 [INFO] 00_inspect | [USMPD:Statements] 컬럼(36개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:51:45 [INFO] 00_inspect | [USMPD:Press Conferences] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:51:45 [INFO] 00_inspect | [USMPD:Monetary Events] 컬럼(37개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'PC', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:51:45 [INFO] 00_inspect | [USMPD:Minutes] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
-18:51:45 [INFO] 00_inspect | === STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===
-18:51:45 [INFO] run_all | [2/10] ✔ 00 완료 (0.2초)
-18:51:45 [INFO] run_all | [3/10] 01 pyfedwatch 확률 재계산: USE_FEDWATCH=False → 건너뜀
-18:51:45 [INFO] run_all | [4/10] 02 T0 재현 검증: USE_FEDWATCH=False → 건너뜀
-18:51:45 [INFO] run_all | [5/10] ▶ 03 분석 패널 생성 시작
-18:51:45 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
-18:51:45 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:51:45 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
-18:51:45 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
-18:51:45 [ERROR] run_all | 03 분석 패널 생성 에러 → 파이프라인 중단
-Traceback (most recent call last):
-  File "/Users/hyowon/Desktop/2.2test/mfed/run_all.py", line 59, in <module>
-    runpy.run_path(str(C.ROOT / script), run_name="__main__")
-  File "<frozen runpy>", line 291, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/hyowon/Desktop/2.2test/mfed/03_build_panels.py", line 29, in <module>
-    move = U.load_move()
-           ^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/utils.py", line 90, in load_move
-    df = raw[[C.MOVE_COLS["date"], C.MOVE_COLS["value"]]].copy()
-         ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/frame.py", line 4108, in __getitem__
-    indexer = self.columns._get_indexer_strict(key, "columns")[1]
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6200, in _get_indexer_strict
-    self._raise_if_missing(keyarr, indexer, axis_name)
-  File "/Users/hyowon/Desktop/2.2test/mfed/venv_fw/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6249, in _raise_if_missing
-    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
-KeyError: "None of [Index(['Date', 'Close'], dtype='object')] are in the [columns]"
-18:54:05 [INFO] run_all | [1/6] ▶ 03 분석 패널 생성 시작
-18:54:07 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
-18:54:07 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
-18:54:07 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
-18:54:07 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
-18:54:07 [INFO] utils | MOVE: 1,227행, 2021-12-01 ~ 2026-11-02
-18:54:07 [INFO] utils | FRED vix: 1,288행, 2021-10-28 ~ 2026-10-28
-18:54:07 [INFO] 03_panels | USE_FEDWATCH=False → FedWatch 변수 없이 패널 생성
-18:54:07 [INFO] 03_panels | 일별 뼈대: 1,207 거래일, MOVE 결측 3일
-18:54:07 [INFO] 03_panels | h=1: Kalshi std 결측 1일
-18:54:07 [INFO] 03_panels | h=2: Kalshi std 결측 0일
-18:54:07 [INFO] 03_panels | panel_daily.csv 저장: (1207, 27)
-18:54:08 [INFO] 03_panels | USMPD: 280개 이벤트
-18:54:08 [WARNING] 03_panels | D-1의 h=1 계약이 해당 회의가 아닌 이벤트 1건 (Kalshi 결측 또는 일정 불일치)
-18:54:08 [INFO] 03_panels | 이벤트 39개 중 USMPD 매칭 39개
-18:54:08 [INFO] 03_panels | === STEP 03 완료 ===
-18:54:08 [INFO] run_all | [1/6] ✔ 03 완료 (2.4초)
-18:54:08 [INFO] run_all | [2/6] ▶ 04 T1 일간 동조성 시작
-18:54:08 [INFO] 04_T1 | === STEP 04 (T1): 일간 동조성 검정 시작 ===
-18:54:08 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1160 피어슨=0.151(p=0.000) 스피어만=0.093(p=0.002)
-18:54:08 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1166 피어슨=0.068(p=0.019) 스피어만=0.005(p=0.865)
-18:54:08 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d_move  n=1160 피어슨=0.179(p=0.000) 스피어만=0.105(p=0.000)
-18:54:08 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1166 피어슨=0.074(p=0.012) 스피어만=-0.011(p=0.698)
-18:54:08 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1161 피어슨=0.123(p=0.000) 스피어만=0.109(p=0.000)
-18:54:08 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1167 피어슨=0.030(p=0.301) 스피어만=0.012(p=0.685)
-18:54:08 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d_move  n=1161 피어슨=0.115(p=0.000) 스피어만=0.097(p=0.001)
-18:54:08 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1167 피어슨=0.039(p=0.179) 스피어만=0.007(p=0.810)
-18:54:08 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all]] N=1160, R²=0.023
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
-18:54:08 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC]] N=1160, R²=0.023
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
-18:54:08 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all]] N=1166, R²=0.005
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
-18:54:08 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC]] N=1166, R²=0.005
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
-18:54:08 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [all]] N=1160, R²=0.032
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
-18:54:08 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC]] N=1160, R²=0.032
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
-18:54:08 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all]] N=1166, R²=0.005
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
-18:54:08 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC]] N=1166, R²=0.005
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
-18:54:08 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all]] N=1161, R²=0.015
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
-18:54:08 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC]] N=1161, R²=0.015
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
-18:54:08 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all]] N=1167, R²=0.001
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
-18:54:08 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC]] N=1167, R²=0.001
-18:54:08 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
-18:54:08 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [all]] N=1161, R²=0.013
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
-18:54:08 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC]] N=1161, R²=0.013
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
-18:54:08 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all]] N=1167, R²=0.002
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
-18:54:08 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC]] N=1167, R²=0.002
-18:54:08 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
-18:54:08 [INFO] 04_T1 | === STEP 04 (T1) 완료 ===
-18:54:08 [INFO] run_all | [2/6] ✔ 04 완료 (0.1초)
-18:54:08 [INFO] run_all | [3/6] ▶ 05 T2 예측력 비교 시작
-18:54:08 [INFO] 05_T2 | === STEP 05 (T2): 실현변동성 예측력 비교 시작 ===
-18:54:08 [INFO] 05_T2 | 비중첩 표본: 57개 시점 (2022-01-03 ~ 2026-09-17)
-18:54:08 [INFO] 05_T2 | [T2 h2 (1) Kalshi] N=57, R²=0.004
-18:54:08 [INFO] 05_T2 |     k_std_bp_h2                  b= 0.3930  se=0.6462  p=0.5430
-18:54:08 [INFO] 05_T2 | [T2 h2 (2) MOVE] N=56, R²=0.247
-18:54:08 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
-18:54:08 [INFO] 05_T2 | [T2 h2 (3) Kalshi+MOVE] N=56, R²=0.256
-18:54:08 [INFO] 05_T2 |     k_std_bp_h2                  b=-0.6345  se=0.5430  p=0.2425
-18:54:08 [INFO] 05_T2 |     move                         b= 0.9608  se=0.2264  p=0.0000
-18:54:08 [INFO] 05_T2 | [T2 h1 (1) Kalshi] N=57, R²=0.009
-18:54:08 [INFO] 05_T2 |     k_std_bp_h1                  b= 0.8343  se=1.2923  p=0.5185
-18:54:08 [INFO] 05_T2 | [T2 h1 (2) MOVE] N=56, R²=0.247
-18:54:08 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
-18:54:08 [INFO] 05_T2 | [T2 h1 (3) Kalshi+MOVE] N=56, R²=0.248
-18:54:08 [INFO] 05_T2 |     k_std_bp_h1                  b=-0.3684  se=0.8196  p=0.6531
-18:54:08 [INFO] 05_T2 |     move                         b= 0.9289  se=0.2108  p=0.0000
-18:54:08 [INFO] 05_T2 | [판단] h=2 (3) Kalshi+MOVE: b=-0.6345, p=0.2425 → 유의하지 않음
-18:54:08 [INFO] 05_T2 | [판단] h=1 (3) Kalshi+MOVE: b=-0.3684, p=0.6531 → 유의하지 않음
-18:54:08 [INFO] 05_T2 | === STEP 05 (T2) 완료 ===
-18:54:08 [INFO] run_all | [3/6] ✔ 05 완료 (0.0초)
-18:54:08 [INFO] run_all | [4/6] ▶ 06 T3 이벤트 스터디 시작
-18:54:08 [INFO] 06_T3 | === STEP 06 (T3): FOMC 이벤트 스터디 시작 ===
-18:54:08 [INFO] 06_T3 | 이벤트 39개, |ΔUST2Y| 유효 39개 (표본 작음 주의: 계획서 6장)
-18:54:08 [INFO] 06_T3 | [T3 h2 (1) Kalshi] N=39, R²=0.008
-18:54:08 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0009  se=0.0021  p=0.6548
-18:54:08 [INFO] 06_T3 | [T3 h2 (2) Kalshi+MOVE] N=39, R²=0.083
-18:54:08 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0013  se=0.0020  p=0.5216
-18:54:08 [INFO] 06_T3 |     move_d1                      b= 0.0005  se=0.0004  p=0.1416
-18:54:08 [INFO] 06_T3 | [T3 h1 (1) Kalshi] N=38, R²=0.070
-18:54:08 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0033  se=0.0024  p=0.1656
-18:54:08 [INFO] 06_T3 | [T3 h1 (2) Kalshi+MOVE] N=38, R²=0.093
-18:54:08 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0025  se=0.0023  p=0.2828
-18:54:08 [INFO] 06_T3 |     move_d1                      b= 0.0003  se=0.0003  p=0.3843
-18:54:08 [INFO] 06_T3 | [판단] h=2 (1) Kalshi: b=-0.0009, p=0.6548 → 기준 미충족
-18:54:08 [INFO] 06_T3 | [판단] h=2 (2) Kalshi+MOVE: b=-0.0013, p=0.5216 → 기준 미충족
-18:54:08 [INFO] 06_T3 | [판단] h=1 (1) Kalshi: b=0.0033, p=0.1656 → 기준 미충족
-18:54:08 [INFO] 06_T3 | [판단] h=1 (2) Kalshi+MOVE: b=0.0025, p=0.2828 → 기준 미충족
-18:54:08 [INFO] 06_T3 | === STEP 06 (T3) 완료 ===
-18:54:08 [INFO] run_all | [4/6] ✔ 06 완료 (0.0초)
-18:54:08 [INFO] run_all | [5/6] ▶ 07 T4 상호작용 시작
-18:54:08 [INFO] 07_T4 | === STEP 07 (T4): 불확실성 × 충격 상호작용 시작 ===
-18:54:08 [INFO] 07_T4 | [T4 MP1 h2] N=39, R²=0.020
-18:54:08 [INFO] 07_T4 |     MP1                          b= 4.0397  se=6.8780  p=0.5570
-18:54:08 [INFO] 07_T4 |     MP1_x_kstd_h2_d1             b=-0.1842  se=0.3552  p=0.6039
-18:54:08 [INFO] 07_T4 |     kstd_h2_d1                   b=-0.0009  se=0.0040  p=0.8255
-18:54:08 [INFO] 07_T4 | [판단] MP1 h=2: c=-0.1842, p=0.6039 → 기준 미충족
-18:54:08 [INFO] 07_T4 | [T4 MP1 h1] N=38, R²=0.081
-18:54:08 [INFO] 07_T4 |     MP1                          b= 2.6289  se=2.4488  p=0.2830
-18:54:08 [INFO] 07_T4 |     MP1_x_kstd_h1_d1             b=-0.2383  se=0.2316  p=0.3035
-18:54:08 [INFO] 07_T4 |     kstd_h1_d1                   b=-0.0049  se=0.0052  p=0.3428
-18:54:08 [INFO] 07_T4 | [판단] MP1 h=1: c=-0.2383, p=0.3035 → 기준 미충족
-18:54:08 [INFO] 07_T4 | === STEP 07 (T4) 완료 ===
-18:54:08 [INFO] run_all | [5/6] ✔ 07 완료 (0.0초)
-18:54:08 [INFO] run_all | [6/6] ▶ 08 T5 Granger 시작
-18:54:08 [INFO] 08_T5 | === STEP 08 (T5): Granger 인과 검정 시작 ===
-18:54:08 [INFO] 08_T5 | --- h=2: d_k_std_bp_h2 ↔ d_move | 사용 1161일 (결측 제거 46일)
-18:54:08 [INFO] 08_T5 |     ADF d_k_std_bp_h2: p=0.0000 (정상)
-18:54:08 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
-18:54:08 [INFO] 08_T5 |     선택 시차(AIC): 7
-18:54:08 [INFO] 08_T5 |     d_k_std_bp_h2 → d_move: F=0.814, p=0.5756 
-18:54:08 [INFO] 08_T5 |     d_move → d_k_std_bp_h2: F=2.500, p=0.0150 ★유의
-18:54:08 [INFO] 08_T5 | --- h=1: d_k_std_bp_h1 ↔ d_move | 사용 1160일 (결측 제거 47일)
-18:54:08 [INFO] 08_T5 |     ADF d_k_std_bp_h1: p=0.0000 (정상)
-18:54:08 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
-18:54:08 [INFO] 08_T5 |     선택 시차(AIC): 6
-18:54:08 [INFO] 08_T5 |     d_k_std_bp_h1 → d_move: F=1.370, p=0.2236 
-18:54:08 [INFO] 08_T5 |     d_move → d_k_std_bp_h1: F=0.850, p=0.5315 
-18:54:08 [INFO] 08_T5 | === STEP 08 (T5) 완료 ===
-18:54:08 [INFO] run_all | [6/6] ✔ 08 완료 (0.2초)
-18:54:08 [INFO] run_all | 전체 완료 (2.8초). 결과: /Users/hyowon/Desktop/2.2test/mfed/outputs_verify
-18:59:11 [INFO] run_all | [1/1] ▶ 04 T1 일간 동조성 시작
-18:59:13 [INFO] 04_T1 | === STEP 04 (T1): 일간 동조성 검정 시작 ===
-18:59:13 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1160 피어슨=0.151(p=0.000) 스피어만=0.093(p=0.002)
-18:59:13 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1166 피어슨=0.068(p=0.019) 스피어만=0.005(p=0.865)
-18:59:13 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d_move  n=1160 피어슨=0.179(p=0.000) 스피어만=0.105(p=0.000)
-18:59:13 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1166 피어슨=0.074(p=0.012) 스피어만=-0.011(p=0.698)
-18:59:13 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1161 피어슨=0.123(p=0.000) 스피어만=0.109(p=0.000)
-18:59:13 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1167 피어슨=0.030(p=0.301) 스피어만=0.012(p=0.685)
-18:59:13 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d_move  n=1161 피어슨=0.115(p=0.000) 스피어만=0.097(p=0.001)
-18:59:13 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1167 피어슨=0.039(p=0.179) 스피어만=0.007(p=0.810)
-18:59:13 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all]] N=1160, R²=0.023
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
-18:59:13 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC]] N=1160, R²=0.023
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
-18:59:13 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all]] N=1166, R²=0.005
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
-18:59:13 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC]] N=1166, R²=0.005
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
-18:59:13 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [all]] N=1160, R²=0.032
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
-18:59:13 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC]] N=1160, R²=0.032
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
-18:59:13 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all]] N=1166, R²=0.005
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
-18:59:13 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC]] N=1166, R²=0.005
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
-18:59:13 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all]] N=1161, R²=0.015
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
-18:59:13 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC]] N=1161, R²=0.015
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
-18:59:13 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all]] N=1167, R²=0.001
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
-18:59:13 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC]] N=1167, R²=0.001
-18:59:13 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
-18:59:13 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [all]] N=1161, R²=0.013
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
-18:59:13 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC]] N=1161, R²=0.013
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
-18:59:13 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all]] N=1167, R²=0.002
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
-18:59:13 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC]] N=1167, R²=0.002
-18:59:13 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
-18:59:13 [INFO] 04_T1 | --- 추가 사양: |ΔKalshi| ~ Δ2Y² ---
-18:59:13 [INFO] 04_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_sq n=1166 피어슨=0.186(p=0.000) 스피어만=0.069(p=0.019)
-18:59:13 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1] N=1166, R²=0.034
-18:59:13 [INFO] 04_T1 |     abs_d_k_std_bp_h1            b= 20.7660  se=8.2532  p=0.0119
-18:59:13 [INFO] 04_T1 | [판단] h=1 |Δstd_bp|: b=20.766, p=0.0119 → b>0 & 유의 (크기가 함께 움직임)
-18:59:13 [INFO] 04_T1 | h=1 abs_d_k_entropy_h1       vs d2y_sq n=1166 피어슨=0.257(p=0.000) 스피어만=0.083(p=0.004)
-18:59:13 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1] N=1166, R²=0.066
-18:59:13 [INFO] 04_T1 |     abs_d_k_entropy_h1           b= 529.1761  se=203.2938  p=0.0092
-18:59:13 [INFO] 04_T1 | [판단] h=1 |Δentropy|: b=529.176, p=0.0092 → b>0 & 유의 (크기가 함께 움직임)
-18:59:13 [INFO] 04_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_sq n=1167 피어슨=0.131(p=0.000) 스피어만=0.073(p=0.012)
-18:59:13 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2] N=1167, R²=0.017
-18:59:13 [INFO] 04_T1 |     abs_d_k_std_bp_h2            b= 7.4417  se=4.5009  p=0.0983
-18:59:13 [INFO] 04_T1 | [판단] h=2 |Δstd_bp|: b=7.442, p=0.0983 → 기준 미충족
-18:59:13 [INFO] 04_T1 | h=2 abs_d_k_entropy_h2       vs d2y_sq n=1167 피어슨=0.207(p=0.000) 스피어만=0.080(p=0.006)
-18:59:13 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2] N=1167, R²=0.043
-18:59:13 [INFO] 04_T1 |     abs_d_k_entropy_h2           b= 327.1405  se=152.8025  p=0.0323
-18:59:13 [INFO] 04_T1 | [판단] h=2 |Δentropy|: b=327.140, p=0.0323 → b>0 & 유의 (크기가 함께 움직임)
-18:59:13 [INFO] 04_T1 | === STEP 04 (T1) 완료 ===
-18:59:13 [INFO] run_all | [1/1] ✔ 04 완료 (2.0초)
-18:59:13 [INFO] run_all | 전체 완료 (2.0초). 결과: /Users/hyowon/Desktop/2.2test/mfed/outputs_verify
+14:36:50 [INFO] run_all | [1/10] ▶ 00 Kalshi 확률분포 → 모멘트 변환 시작
+14:36:51 [INFO] 00a_kalshi | === STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===
+14:36:51 [INFO] 00a_kalshi | 원자료 84,114행, 계약 52개, 2021-07-02 ~ 2026-11-01
+14:36:51 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+14:36:51 [WARNING] 00a_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
+14:36:51 [INFO] 00a_kalshi | 회의 매칭 후 84,082행, 회의 51개
+14:36:53 [INFO] 00a_kalshi | 모멘트 7,672행 생성. std=0(왜도·첨도 NaN) 77행
+14:36:53 [INFO] 00a_kalshi | std_bp 요약: 평균 22.92, 중앙값 21.63, 최대 110.00
+14:36:53 [INFO] 00a_kalshi | 저장: kalshi_fomc_moments.csv
+14:36:53 [INFO] 00a_kalshi | === STEP 00a 완료 ===
+14:36:53 [INFO] run_all | [1/10] ✔ 00 완료 (3.1초)
+14:36:53 [INFO] run_all | [2/10] ▶ 00 입력 파일 점검 시작
+14:36:53 [INFO] 00_inspect | === STEP 00: 입력 파일 점검 시작 ===
+14:36:53 [INFO] 00_inspect | kalshi     OK   kalshi_fomc_moments.csv
+14:36:53 [INFO] 00_inspect | fomc       OK   fomc_dates.csv
+14:36:53 [INFO] 00_inspect | dgs2       OK   DGS2.csv
+14:36:53 [INFO] 00_inspect | move       OK   MOVE.csv
+14:36:53 [INFO] 00_inspect | usmpd      OK   USMPD.xlsx
+14:36:53 [INFO] 00_inspect | dfedtarl   없음   DFEDTARL.csv
+14:36:53 [INFO] 00_inspect | dfedtaru   없음   DFEDTARU.csv
+14:36:53 [INFO] 00_inspect | cme_fw     없음   cme_fedwatch_official.csv
+14:36:53 [INFO] 00_inspect | vix        OK   VIXCLS.csv
+14:36:53 [INFO] 00_inspect | ZQ 월물 파일: 0개 
+14:36:53 [INFO] 00_inspect | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
+14:36:53 [INFO] 00_inspect | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
+14:36:53 [INFO] 00_inspect | [fomc] 컬럼: ['date']
+14:36:53 [INFO] 00_inspect | [fomc] 첫 행: {'date': '2021-01-27'}
+14:36:53 [INFO] 00_inspect | [dgs2] 컬럼: ['observation_date', 'DGS2']
+14:36:53 [INFO] 00_inspect | [dgs2] 첫 행: {'observation_date': '2021-11-01', 'DGS2': 0.5}
+14:36:53 [INFO] 00_inspect | [move] 컬럼: ['Date', 'Close']
+14:36:53 [INFO] 00_inspect | [move] 첫 행: {'Date': '2021-12-01', 'Close': 82.97000122070312}
+14:36:53 [INFO] 00_inspect | [vix] 컬럼: ['observation_date', 'VIXCLS']
+14:36:53 [INFO] 00_inspect | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
+14:36:53 [INFO] 00_inspect | [USMPD] 시트 목록: ['README', 'Statements', 'Press Conferences', 'Monetary Events', 'Minutes']
+14:36:53 [INFO] 00_inspect | [USMPD:README] 컬럼(2개): ['Unnamed: 0', 'Unnamed: 1']
+14:36:53 [INFO] 00_inspect | [USMPD:Statements] 컬럼(36개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
+14:36:53 [INFO] 00_inspect | [USMPD:Press Conferences] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
+14:36:53 [INFO] 00_inspect | [USMPD:Monetary Events] 컬럼(37개): ['Date', 'date_time', 'SEP', 'Unscheduled', 'PC', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
+14:36:53 [INFO] 00_inspect | [USMPD:Minutes] 컬럼(34개): ['Date', 'date_time', 'MP1', 'MP2', 'FF1', 'FF2', 'FF3', 'FF4', 'FF5', 'FF6', 'ED1', 'ED2', 'ED3', 'ED4', 'ED5', 'ED6', 'ED7', 'ED8', 'OIS1Y', 'OIS2Y', 'UST3M', 'UST6M', 'UST2Y', 'UST5Y', 'UST10Y', 'UST30Y', 'TIPS5Y', 'TIPS10Y', 'TIPS30Y', 'SP500', 'SPFUT', 'DXY', 'EURUSD', 'USDJPY']
+14:36:53 [INFO] 00_inspect | === STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===
+14:36:53 [INFO] run_all | [2/10] ✔ 00 완료 (0.5초)
+14:36:53 [INFO] run_all | [3/10] 01 pyfedwatch 확률 재계산: USE_FEDWATCH=False → 건너뜀
+14:36:53 [INFO] run_all | [4/10] 02 T0 재현 검증: USE_FEDWATCH=False → 건너뜀
+14:36:53 [INFO] run_all | [5/10] ▶ 03 분석 패널 생성 시작
+14:36:53 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
+14:36:53 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+14:36:53 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
+14:36:53 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
+14:36:53 [INFO] utils | MOVE: 1,227행, 2021-12-01 ~ 2026-11-02
+14:36:53 [INFO] utils | FRED vix: 1,288행, 2021-10-28 ~ 2026-10-28
+14:36:53 [INFO] 03_panels | USE_FEDWATCH=False → FedWatch 변수 없이 패널 생성
+14:36:53 [INFO] 03_panels | 일별 뼈대: 1,207 거래일, MOVE 결측 3일
+14:36:53 [INFO] 03_panels | h=1: Kalshi std 결측 1일
+14:36:53 [INFO] 03_panels | h=2: Kalshi std 결측 0일
+14:36:53 [INFO] 03_panels | panel_daily.csv 저장: (1207, 27)
+14:36:54 [INFO] 03_panels | USMPD: 280개 이벤트
+14:36:54 [WARNING] 03_panels | D-1의 h=1 계약이 해당 회의가 아닌 이벤트 1건 (Kalshi 결측 또는 일정 불일치)
+14:36:54 [INFO] 03_panels | 이벤트 39개 중 USMPD 매칭 39개
+14:36:54 [INFO] 03_panels | === STEP 03 완료 ===
+14:36:54 [INFO] run_all | [5/10] ✔ 03 완료 (0.6초)
+14:36:54 [INFO] run_all | [6/10] ▶ 04 T1 일간 동조성 시작
+14:36:54 [INFO] 04_T1 | === STEP 04 (T1): 일간 동조성 검정 시작 ===
+14:36:54 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1160 피어슨=0.151(p=0.000) 스피어만=0.093(p=0.002)
+14:36:54 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1166 피어슨=0.068(p=0.019) 스피어만=0.005(p=0.865)
+14:36:54 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d_move  n=1160 피어슨=0.179(p=0.000) 스피어만=0.105(p=0.000)
+14:36:54 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1166 피어슨=0.074(p=0.012) 스피어만=-0.011(p=0.698)
+14:36:54 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1161 피어슨=0.123(p=0.000) 스피어만=0.109(p=0.000)
+14:36:54 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1167 피어슨=0.030(p=0.301) 스피어만=0.012(p=0.685)
+14:36:54 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d_move  n=1161 피어슨=0.115(p=0.000) 스피어만=0.097(p=0.001)
+14:36:54 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1167 피어슨=0.039(p=0.179) 스피어만=0.007(p=0.810)
+14:36:54 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all]] N=1160, R²=0.023
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
+14:36:54 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC]] N=1160, R²=0.023
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
+14:36:54 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all]] N=1166, R²=0.005
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
+14:36:54 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC]] N=1166, R²=0.005
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
+14:36:54 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [all]] N=1160, R²=0.032
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
+14:36:54 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC]] N=1160, R²=0.032
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
+14:36:54 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all]] N=1166, R²=0.005
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
+14:36:54 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC]] N=1166, R²=0.005
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
+14:36:54 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all]] N=1161, R²=0.015
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
+14:36:54 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC]] N=1161, R²=0.015
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
+14:36:54 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all]] N=1167, R²=0.001
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
+14:36:54 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC]] N=1167, R²=0.001
+14:36:54 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
+14:36:54 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [all]] N=1161, R²=0.013
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
+14:36:54 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC]] N=1161, R²=0.013
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
+14:36:54 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all]] N=1167, R²=0.002
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
+14:36:54 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC]] N=1167, R²=0.002
+14:36:54 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
+14:36:54 [INFO] 04_T1 | --- 추가 사양: |ΔKalshi| ~ Δ2Y² ---
+14:36:54 [INFO] 04_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_sq n=1166 피어슨=0.186(p=0.000) 스피어만=0.069(p=0.019)
+14:36:54 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1] N=1166, R²=0.034
+14:36:54 [INFO] 04_T1 |     abs_d_k_std_bp_h1            b= 20.7660  se=8.2532  p=0.0119
+14:36:54 [INFO] 04_T1 | [판단] h=1 |Δstd_bp|: b=20.766, p=0.0119 → b>0 & 유의 (크기가 함께 움직임)
+14:36:54 [INFO] 04_T1 | h=1 abs_d_k_entropy_h1       vs d2y_sq n=1166 피어슨=0.257(p=0.000) 스피어만=0.083(p=0.004)
+14:36:54 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1] N=1166, R²=0.066
+14:36:54 [INFO] 04_T1 |     abs_d_k_entropy_h1           b= 529.1761  se=203.2938  p=0.0092
+14:36:54 [INFO] 04_T1 | [판단] h=1 |Δentropy|: b=529.176, p=0.0092 → b>0 & 유의 (크기가 함께 움직임)
+14:36:54 [INFO] 04_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_sq n=1167 피어슨=0.131(p=0.000) 스피어만=0.073(p=0.012)
+14:36:54 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2] N=1167, R²=0.017
+14:36:54 [INFO] 04_T1 |     abs_d_k_std_bp_h2            b= 7.4417  se=4.5009  p=0.0983
+14:36:54 [INFO] 04_T1 | [판단] h=2 |Δstd_bp|: b=7.442, p=0.0983 → 기준 미충족
+14:36:54 [INFO] 04_T1 | h=2 abs_d_k_entropy_h2       vs d2y_sq n=1167 피어슨=0.207(p=0.000) 스피어만=0.080(p=0.006)
+14:36:54 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2] N=1167, R²=0.043
+14:36:54 [INFO] 04_T1 |     abs_d_k_entropy_h2           b= 327.1405  se=152.8025  p=0.0323
+14:36:54 [INFO] 04_T1 | [판단] h=2 |Δentropy|: b=327.140, p=0.0323 → b>0 & 유의 (크기가 함께 움직임)
+14:36:54 [INFO] 04_T1 | === STEP 04 (T1) 완료 ===
+14:36:54 [INFO] run_all | [6/10] ✔ 04 완료 (0.4초)
+14:36:54 [INFO] run_all | [7/10] ▶ 05 T2 예측력 비교 시작
+14:36:54 [INFO] 05_T2 | === STEP 05 (T2): 실현변동성 예측력 비교 시작 ===
+14:36:54 [INFO] 05_T2 | 비중첩 표본: 57개 시점 (2022-01-03 ~ 2026-09-17)
+14:36:54 [INFO] 05_T2 | [T2 h2 (1) Kalshi] N=57, R²=0.004
+14:36:54 [INFO] 05_T2 |     k_std_bp_h2                  b= 0.3930  se=0.6462  p=0.5430
+14:36:54 [INFO] 05_T2 | [T2 h2 (2) MOVE] N=56, R²=0.247
+14:36:54 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
+14:36:54 [INFO] 05_T2 | [T2 h2 (3) Kalshi+MOVE] N=56, R²=0.256
+14:36:54 [INFO] 05_T2 |     k_std_bp_h2                  b=-0.6345  se=0.5430  p=0.2425
+14:36:54 [INFO] 05_T2 |     move                         b= 0.9608  se=0.2264  p=0.0000
+14:36:54 [INFO] 05_T2 | [T2 h1 (1) Kalshi] N=57, R²=0.009
+14:36:54 [INFO] 05_T2 |     k_std_bp_h1                  b= 0.8343  se=1.2923  p=0.5185
+14:36:54 [INFO] 05_T2 | [T2 h1 (2) MOVE] N=56, R²=0.247
+14:36:54 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
+14:36:54 [INFO] 05_T2 | [T2 h1 (3) Kalshi+MOVE] N=56, R²=0.248
+14:36:54 [INFO] 05_T2 |     k_std_bp_h1                  b=-0.3684  se=0.8196  p=0.6531
+14:36:54 [INFO] 05_T2 |     move                         b= 0.9289  se=0.2108  p=0.0000
+14:36:54 [INFO] 05_T2 | [판단] h=2 (3) Kalshi+MOVE: b=-0.6345, p=0.2425 → 유의하지 않음
+14:36:55 [INFO] 05_T2 | [판단] h=1 (3) Kalshi+MOVE: b=-0.3684, p=0.6531 → 유의하지 않음
+14:36:55 [INFO] 05_T2 | === STEP 05 (T2) 완료 ===
+14:36:55 [INFO] run_all | [7/10] ✔ 05 완료 (0.3초)
+14:36:55 [INFO] run_all | [8/10] ▶ 06 T3 이벤트 스터디 시작
+14:36:55 [INFO] 06_T3 | === STEP 06 (T3): FOMC 이벤트 스터디 시작 ===
+14:36:55 [INFO] 06_T3 | 이벤트 39개, |ΔUST2Y| 유효 39개 (표본 작음 주의: 계획서 6장)
+14:36:55 [INFO] 06_T3 | [T3 h2 (1) Kalshi] N=39, R²=0.008
+14:36:55 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0009  se=0.0021  p=0.6548
+14:36:55 [INFO] 06_T3 | [T3 h2 (2) Kalshi+MOVE] N=39, R²=0.083
+14:36:55 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0013  se=0.0020  p=0.5216
+14:36:55 [INFO] 06_T3 |     move_d1                      b= 0.0005  se=0.0004  p=0.1416
+14:36:55 [INFO] 06_T3 | [T3 h1 (1) Kalshi] N=38, R²=0.070
+14:36:55 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0033  se=0.0024  p=0.1656
+14:36:55 [INFO] 06_T3 | [T3 h1 (2) Kalshi+MOVE] N=38, R²=0.093
+14:36:55 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0025  se=0.0023  p=0.2828
+14:36:55 [INFO] 06_T3 |     move_d1                      b= 0.0003  se=0.0003  p=0.3843
+14:36:55 [INFO] 06_T3 | [판단] h=2 (1) Kalshi: b=-0.0009, p=0.6548 → 기준 미충족
+14:36:55 [INFO] 06_T3 | [판단] h=2 (2) Kalshi+MOVE: b=-0.0013, p=0.5216 → 기준 미충족
+14:36:55 [INFO] 06_T3 | [판단] h=1 (1) Kalshi: b=0.0033, p=0.1656 → 기준 미충족
+14:36:55 [INFO] 06_T3 | [판단] h=1 (2) Kalshi+MOVE: b=0.0025, p=0.2828 → 기준 미충족
+14:36:55 [INFO] 06_T3 | === STEP 06 (T3) 완료 ===
+14:36:55 [INFO] run_all | [8/10] ✔ 06 완료 (0.2초)
+14:36:55 [INFO] run_all | [9/10] ▶ 07 T4 상호작용 시작
+14:36:55 [INFO] 07_T4 | === STEP 07 (T4): 불확실성 × 충격 상호작용 시작 ===
+14:36:55 [INFO] 07_T4 | [T4 MP1 h2] N=39, R²=0.020
+14:36:55 [INFO] 07_T4 |     MP1                          b= 4.0397  se=6.8780  p=0.5570
+14:36:55 [INFO] 07_T4 |     MP1_x_kstd_h2_d1             b=-0.1842  se=0.3552  p=0.6039
+14:36:55 [INFO] 07_T4 |     kstd_h2_d1                   b=-0.0009  se=0.0040  p=0.8255
+14:36:55 [INFO] 07_T4 | [판단] MP1 h=2: c=-0.1842, p=0.6039 → 기준 미충족
+14:36:55 [INFO] 07_T4 | [T4 MP1 h1] N=38, R²=0.081
+14:36:55 [INFO] 07_T4 |     MP1                          b= 2.6289  se=2.4488  p=0.2830
+14:36:55 [INFO] 07_T4 |     MP1_x_kstd_h1_d1             b=-0.2383  se=0.2316  p=0.3035
+14:36:55 [INFO] 07_T4 |     kstd_h1_d1                   b=-0.0049  se=0.0052  p=0.3428
+14:36:55 [INFO] 07_T4 | [판단] MP1 h=1: c=-0.2383, p=0.3035 → 기준 미충족
+14:36:55 [INFO] 07_T4 | === STEP 07 (T4) 완료 ===
+14:36:55 [INFO] run_all | [9/10] ✔ 07 완료 (0.4초)
+14:36:55 [INFO] run_all | [10/10] ▶ 08 T5 Granger 시작
+14:36:55 [INFO] 08_T5 | === STEP 08 (T5): Granger 인과 검정 시작 ===
+14:36:55 [INFO] 08_T5 | --- h=2: d_k_std_bp_h2 ↔ d_move | 사용 1161일 (결측 제거 46일)
+14:36:55 [INFO] 08_T5 |     ADF d_k_std_bp_h2: p=0.0000 (정상)
+14:36:55 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
+14:36:55 [INFO] 08_T5 |     선택 시차(AIC): 7
+14:36:55 [INFO] 08_T5 |     d_k_std_bp_h2 → d_move: F=0.814, p=0.5756 
+14:36:55 [INFO] 08_T5 |     d_move → d_k_std_bp_h2: F=2.500, p=0.0150 ★유의
+14:36:55 [INFO] 08_T5 | --- h=1: d_k_std_bp_h1 ↔ d_move | 사용 1160일 (결측 제거 47일)
+14:36:56 [INFO] 08_T5 |     ADF d_k_std_bp_h1: p=0.0000 (정상)
+14:36:56 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
+14:36:56 [INFO] 08_T5 |     선택 시차(AIC): 6
+14:36:56 [INFO] 08_T5 |     d_k_std_bp_h1 → d_move: F=1.370, p=0.2236 
+14:36:56 [INFO] 08_T5 |     d_move → d_k_std_bp_h1: F=0.850, p=0.5315 
+14:36:56 [INFO] 08_T5 | === STEP 08 (T5) 완료 ===
+14:36:56 [INFO] run_all | [10/10] ✔ 08 완료 (0.7초)
+14:36:56 [INFO] run_all | 전체 완료 (6.1초). 결과: /sessions/rcw-01fnewkigumca3jdptaqvqyu/mnt/2.2test/mfed/outputs_verify
+14:42:45 [INFO] run_all | [1/6] ▶ 03 분석 패널 생성 시작
+14:42:47 [INFO] 03_panels | === STEP 03: 분석용 패널 생성 시작 ===
+14:42:47 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+14:42:47 [INFO] utils | Kalshi: 7,634행, 회의 51개, h 분포 {1: 1860, 2: 1771, 3: 1771, 4: 1613, 5: 194, 6: 174, 7: 96, 8: 76, 9: 39, 10: 40}
+14:42:47 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
+14:42:47 [INFO] utils | MOVE: 1,227행, 2021-12-01 ~ 2026-11-02
+14:42:47 [INFO] utils | FRED vix: 1,288행, 2021-10-28 ~ 2026-10-28
+14:42:47 [INFO] 03_panels | USE_FEDWATCH=False → FedWatch 변수 없이 패널 생성
+14:42:47 [INFO] 03_panels | 일별 뼈대: 1,207 거래일, MOVE 결측 3일
+14:42:47 [INFO] 03_panels | h=1: Kalshi std 결측 1일
+14:42:47 [INFO] 03_panels | h=2: Kalshi std 결측 0일
+14:42:47 [INFO] 03_panels | h=1: Δstd 비결측 1205일 (그중 FOMC 당일 39일)
+14:42:47 [INFO] 03_panels | h=2: Δstd 비결측 1206일 (그중 FOMC 당일 39일)
+14:42:47 [INFO] 03_panels | panel_daily.csv 저장: (1207, 27)
+14:42:48 [INFO] 03_panels | USMPD: 280개 이벤트
+14:42:48 [WARNING] 03_panels | D-1의 h=1 계약이 해당 회의가 아닌 이벤트 1건 (Kalshi 결측 또는 일정 불일치)
+14:42:48 [INFO] 03_panels | 이벤트 39개 중 USMPD 매칭 39개
+14:42:48 [INFO] 03_panels | === STEP 03 완료 ===
+14:42:48 [INFO] run_all | [1/6] ✔ 03 완료 (2.4초)
+14:42:48 [INFO] run_all | [2/6] ▶ 04 T1 일간 동조성 시작
+14:42:48 [INFO] 04_T1 | === STEP 04 (T1): 일간 동조성 검정 시작 ===
+14:42:48 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1199 피어슨=0.158(p=0.000) 스피어만=0.110(p=0.000)
+14:42:48 [INFO] 04_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1205 피어슨=0.036(p=0.217) 스피어만=-0.016(p=0.578)
+14:42:48 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d_move  n=1199 피어슨=0.185(p=0.000) 스피어만=0.127(p=0.000)
+14:42:48 [INFO] 04_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1205 피어슨=0.053(p=0.067) 스피어만=-0.032(p=0.267)
+14:42:48 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1200 피어슨=0.139(p=0.000) 스피어만=0.127(p=0.000)
+14:42:48 [INFO] 04_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1206 피어슨=0.032(p=0.270) 스피어만=-0.000(p=0.990)
+14:42:48 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d_move  n=1200 피어슨=0.128(p=0.000) 스피어만=0.107(p=0.000)
+14:42:48 [INFO] 04_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1206 피어슨=0.044(p=0.124) 스피어만=-0.004(p=0.903)
+14:42:48 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all]] N=1199, R²=0.025
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4630  se=0.1095  p=0.0000
+14:42:48 [INFO] 04_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC]] N=1160, R²=0.023
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h1                b= 0.4766  se=0.1279  p=0.0002
+14:42:48 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all]] N=1205, R²=0.001
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h1                b= 2.8137  se=5.5338  p=0.6111
+14:42:48 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC]] N=1166, R²=0.005
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h1                b= 5.8736  se=6.6211  p=0.3750
+14:42:48 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [all]] N=1199, R²=0.034
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.1216  se=2.1933  p=0.0000
+14:42:48 [INFO] 04_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC]] N=1160, R²=0.032
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h1               b= 10.3408  se=2.5250  p=0.0000
+14:42:48 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all]] N=1205, R²=0.003
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h1               b= 78.0512  se=133.1055  p=0.5576
+14:42:48 [INFO] 04_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC]] N=1166, R²=0.005
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h1               b= 115.8080  se=155.1703  p=0.4555
+14:42:48 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all]] N=1200, R²=0.019
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2474  se=0.0666  p=0.0002
+14:42:48 [INFO] 04_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC]] N=1161, R²=0.015
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h2                b= 0.2207  se=0.0690  p=0.0014
+14:42:48 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all]] N=1206, R²=0.001
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.5288  se=3.6164  p=0.6725
+14:42:48 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC]] N=1167, R²=0.001
+14:42:48 [INFO] 04_T1 |     d_k_std_bp_h2                b= 1.4660  se=3.8206  p=0.7012
+14:42:48 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [all]] N=1200, R²=0.016
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.9172  se=1.9903  p=0.0029
+14:42:48 [INFO] 04_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC]] N=1161, R²=0.013
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h2               b= 5.2935  se=2.0506  p=0.0098
+14:42:48 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all]] N=1206, R²=0.002
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h2               b= 55.3018  se=112.1764  p=0.6220
+14:42:48 [INFO] 04_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC]] N=1167, R²=0.002
+14:42:48 [INFO] 04_T1 |     d_k_entropy_h2               b= 49.0342  se=116.9701  p=0.6751
+14:42:48 [INFO] 04_T1 | --- 추가 사양: |ΔKalshi| ~ Δ2Y² ---
+14:42:48 [INFO] 04_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_sq n=1205 피어슨=0.185(p=0.000) 스피어만=0.092(p=0.001)
+14:42:48 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1] N=1205, R²=0.034
+14:42:48 [INFO] 04_T1 |     abs_d_k_std_bp_h1            b= 18.6042  se=6.4341  p=0.0038
+14:42:48 [INFO] 04_T1 | [판단] h=1 |Δstd_bp|: b=18.604, p=0.0038 → b>0 & 유의 (크기가 함께 움직임)
+14:42:48 [INFO] 04_T1 | h=1 abs_d_k_entropy_h1       vs d2y_sq n=1205 피어슨=0.239(p=0.000) 스피어만=0.104(p=0.000)
+14:42:48 [INFO] 04_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1] N=1205, R²=0.057
+14:42:48 [INFO] 04_T1 |     abs_d_k_entropy_h1           b= 455.7473  se=168.0120  p=0.0067
+14:42:48 [INFO] 04_T1 | [판단] h=1 |Δentropy|: b=455.747, p=0.0067 → b>0 & 유의 (크기가 함께 움직임)
+14:42:48 [INFO] 04_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_sq n=1206 피어슨=0.124(p=0.000) 스피어만=0.078(p=0.006)
+14:42:48 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2] N=1206, R²=0.015
+14:42:48 [INFO] 04_T1 |     abs_d_k_std_bp_h2            b= 7.0081  se=4.2466  p=0.0989
+14:42:48 [INFO] 04_T1 | [판단] h=2 |Δstd_bp|: b=7.008, p=0.0989 → 기준 미충족
+14:42:48 [INFO] 04_T1 | h=2 abs_d_k_entropy_h2       vs d2y_sq n=1206 피어슨=0.203(p=0.000) 스피어만=0.087(p=0.003)
+14:42:48 [INFO] 04_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2] N=1206, R²=0.041
+14:42:48 [INFO] 04_T1 |     abs_d_k_entropy_h2           b= 322.7525  se=146.3448  p=0.0274
+14:42:48 [INFO] 04_T1 | [판단] h=2 |Δentropy|: b=322.753, p=0.0274 → b>0 & 유의 (크기가 함께 움직임)
+14:42:48 [INFO] 04_T1 | === STEP 04 (T1) 완료 ===
+14:42:48 [INFO] run_all | [2/6] ✔ 04 완료 (0.4초)
+14:42:48 [INFO] run_all | [3/6] ▶ 05 T2 예측력 비교 시작
+14:42:48 [INFO] 05_T2 | === STEP 05 (T2): 실현변동성 예측력 비교 시작 ===
+14:42:48 [INFO] 05_T2 | 비중첩 표본: 57개 시점 (2022-01-03 ~ 2026-09-17)
+14:42:48 [INFO] 05_T2 | [T2 h2 (1) Kalshi] N=57, R²=0.004
+14:42:48 [INFO] 05_T2 |     k_std_bp_h2                  b= 0.3930  se=0.6462  p=0.5430
+14:42:48 [INFO] 05_T2 | [T2 h2 (2) MOVE] N=56, R²=0.247
+14:42:48 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
+14:42:48 [INFO] 05_T2 | [T2 h2 (3) Kalshi+MOVE] N=56, R²=0.256
+14:42:48 [INFO] 05_T2 |     k_std_bp_h2                  b=-0.6345  se=0.5430  p=0.2425
+14:42:48 [INFO] 05_T2 |     move                         b= 0.9608  se=0.2264  p=0.0000
+14:42:48 [INFO] 05_T2 | [T2 h1 (1) Kalshi] N=57, R²=0.009
+14:42:48 [INFO] 05_T2 |     k_std_bp_h1                  b= 0.8343  se=1.2923  p=0.5185
+14:42:48 [INFO] 05_T2 | [T2 h1 (2) MOVE] N=56, R²=0.247
+14:42:48 [INFO] 05_T2 |     move                         b= 0.9119  se=0.2250  p=0.0001
+14:42:48 [INFO] 05_T2 | [T2 h1 (3) Kalshi+MOVE] N=56, R²=0.248
+14:42:48 [INFO] 05_T2 |     k_std_bp_h1                  b=-0.3684  se=0.8196  p=0.6531
+14:42:48 [INFO] 05_T2 |     move                         b= 0.9289  se=0.2108  p=0.0000
+14:42:48 [INFO] 05_T2 | [판단] h=2 (3) Kalshi+MOVE: b=-0.6345, p=0.2425 → 유의하지 않음
+14:42:48 [INFO] 05_T2 | [판단] h=1 (3) Kalshi+MOVE: b=-0.3684, p=0.6531 → 유의하지 않음
+14:42:48 [INFO] 05_T2 | === STEP 05 (T2) 완료 ===
+14:42:48 [INFO] run_all | [3/6] ✔ 05 완료 (0.1초)
+14:42:48 [INFO] run_all | [4/6] ▶ 06 T3 이벤트 스터디 시작
+14:42:48 [INFO] 06_T3 | === STEP 06 (T3): FOMC 이벤트 스터디 시작 ===
+14:42:48 [INFO] 06_T3 | 이벤트 39개, |ΔUST2Y| 유효 39개 (표본 작음 주의: 계획서 6장)
+14:42:48 [INFO] 06_T3 | [T3 h2 (1) Kalshi] N=39, R²=0.008
+14:42:48 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0009  se=0.0021  p=0.6548
+14:42:48 [INFO] 06_T3 | [T3 h2 (2) Kalshi+MOVE] N=39, R²=0.083
+14:42:48 [INFO] 06_T3 |     kstd_h2_d1                   b=-0.0013  se=0.0020  p=0.5216
+14:42:48 [INFO] 06_T3 |     move_d1                      b= 0.0005  se=0.0004  p=0.1416
+14:42:48 [INFO] 06_T3 | [T3 h1 (1) Kalshi] N=38, R²=0.070
+14:42:48 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0033  se=0.0024  p=0.1656
+14:42:48 [INFO] 06_T3 | [T3 h1 (2) Kalshi+MOVE] N=38, R²=0.093
+14:42:48 [INFO] 06_T3 |     kstd_h1_d1                   b= 0.0025  se=0.0023  p=0.2828
+14:42:48 [INFO] 06_T3 |     move_d1                      b= 0.0003  se=0.0003  p=0.3843
+14:42:48 [INFO] 06_T3 | [판단] h=2 (1) Kalshi: b=-0.0009, p=0.6548 → 기준 미충족
+14:42:48 [INFO] 06_T3 | [판단] h=2 (2) Kalshi+MOVE: b=-0.0013, p=0.5216 → 기준 미충족
+14:42:48 [INFO] 06_T3 | [판단] h=1 (1) Kalshi: b=0.0033, p=0.1656 → 기준 미충족
+14:42:48 [INFO] 06_T3 | [판단] h=1 (2) Kalshi+MOVE: b=0.0025, p=0.2828 → 기준 미충족
+14:42:48 [INFO] 06_T3 | === STEP 06 (T3) 완료 ===
+14:42:48 [INFO] run_all | [4/6] ✔ 06 완료 (0.1초)
+14:42:48 [INFO] run_all | [5/6] ▶ 07 T4 상호작용 시작
+14:42:48 [INFO] 07_T4 | === STEP 07 (T4): 불확실성 × 충격 상호작용 시작 ===
+14:42:48 [INFO] 07_T4 | [T4 MP1 h2] N=39, R²=0.020
+14:42:48 [INFO] 07_T4 |     MP1                          b= 4.0397  se=6.8780  p=0.5570
+14:42:48 [INFO] 07_T4 |     MP1_x_kstd_h2_d1             b=-0.1842  se=0.3552  p=0.6039
+14:42:48 [INFO] 07_T4 |     kstd_h2_d1                   b=-0.0009  se=0.0040  p=0.8255
+14:42:48 [INFO] 07_T4 | [판단] MP1 h=2: c=-0.1842, p=0.6039 → 기준 미충족
+14:42:48 [INFO] 07_T4 | [T4 MP1 h1] N=38, R²=0.081
+14:42:48 [INFO] 07_T4 |     MP1                          b= 2.6289  se=2.4488  p=0.2830
+14:42:48 [INFO] 07_T4 |     MP1_x_kstd_h1_d1             b=-0.2383  se=0.2316  p=0.3035
+14:42:48 [INFO] 07_T4 |     kstd_h1_d1                   b=-0.0049  se=0.0052  p=0.3428
+14:42:48 [INFO] 07_T4 | [판단] MP1 h=1: c=-0.2383, p=0.3035 → 기준 미충족
+14:42:48 [INFO] 07_T4 | === STEP 07 (T4) 완료 ===
+14:42:48 [INFO] run_all | [5/6] ✔ 07 완료 (0.1초)
+14:42:48 [INFO] run_all | [6/6] ▶ 08 T5 Granger 시작
+14:42:48 [INFO] 08_T5 | === STEP 08 (T5): Granger 인과 검정 시작 ===
+14:42:48 [INFO] 08_T5 | --- h=2: d_k_std_bp_h2 ↔ d_move | 사용 1200일 (결측 제거 7일)
+14:42:49 [INFO] 08_T5 |     ADF d_k_std_bp_h2: p=0.0000 (정상)
+14:42:49 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
+14:42:49 [INFO] 08_T5 |     선택 시차(AIC): 10
+14:42:49 [INFO] 08_T5 |     d_k_std_bp_h2 → d_move: F=1.677, p=0.0811 
+14:42:49 [INFO] 08_T5 |     d_move → d_k_std_bp_h2: F=2.364, p=0.0091 ★유의
+14:42:49 [INFO] 08_T5 | --- h=1: d_k_std_bp_h1 ↔ d_move | 사용 1199일 (결측 제거 8일)
+14:42:49 [INFO] 08_T5 |     ADF d_k_std_bp_h1: p=0.0000 (정상)
+14:42:49 [INFO] 08_T5 |     ADF d_move: p=0.0000 (정상)
+14:42:49 [INFO] 08_T5 |     선택 시차(AIC): 8
+14:42:49 [INFO] 08_T5 |     d_k_std_bp_h1 → d_move: F=2.187, p=0.0261 ★유의
+14:42:49 [INFO] 08_T5 |     d_move → d_k_std_bp_h1: F=2.337, p=0.0172 ★유의
+14:42:49 [INFO] 08_T5 | === STEP 08 (T5) 완료 ===
+14:42:49 [INFO] run_all | [6/6] ✔ 08 완료 (0.3초)
+14:42:49 [INFO] run_all | 전체 완료 (3.3초). 결과: /sessions/rcw-01fnewkigumca3jdptaqvqyu/mnt/2.2test/mfed/outputs_verify
