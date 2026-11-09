@@ -1,8 +1,8 @@
 """
 08_t5_granger.py  —  T5. 선후행 관계 (Q1)
 ========================================
-[역할] Kalshi 분포 폭 변화와 MOVE·FedWatch 변화 사이의 예측 선후관계(Granger) 양방향 검정.
-  쌍: ΔKalshi std ↔ ΔMOVE,  ΔKalshi std ↔ ΔFedWatch std
+[역할] Kalshi 분포 폭 변화와 MOVE 변화 사이의 예측 선후관계(Granger) 양방향 검정.
+  쌍: ΔKalshi std ↔ ΔMOVE
   절차: (1) ADF 정상성 확인 → (2) VAR 정보기준(AIC)으로 시차 선택
         → (3) statsmodels grangercausalitytests (양방향)
   출력: outputs_verify/t5_granger.csv
@@ -30,8 +30,6 @@ daily = pd.read_csv(C.OUT_DIR / "panel_daily.csv", index_col="date", parse_dates
 pairs = []
 for h in [C.MAIN_HORIZON, C.AUX_HORIZON]:
     pairs.append((f"d_k_std_bp_h{h}", "d_move", h))
-    if C.USE_FEDWATCH:
-        pairs.append((f"d_k_std_bp_h{h}", f"d_fw_std_h{h}", h))
 
 rows = []
 for a, b, h in pairs:
