@@ -2,7 +2,7 @@
 05_build_daily_panel.py
 =======================
 [역할] T1·T5에 쓸 일별 분석 데이터셋 생성.
-  출력: outputs_verify/panel_daily.csv  — 일별 (T1, T5)
+  출력: outputs/<timing>/panel_daily.csv  — 일별 (T1, T5)
 
 변수 규칙 (계획서 2장 '변수 구성 규칙'):
   - Kalshi 회의 순번 h=1(가장 가까운), h=2(두 번째) 각각 생성

@@ -4,7 +4,7 @@
 [역할] Kalshi 분포 폭 변화가 2년물 변동성·MOVE 변화와 같은 날 함께 움직이는지 검정.
   변수: ΔKalshi std, ΔKalshi entropy  ↔  ΔMOVE, Δ2Y²
   방법: (1) 상관계수(피어슨·스피어만)  (2) OLS (차분 변수, A4)
-  출력: outputs_verify/t1_corr.csv, t1_ols.csv
+  출력: outputs/<timing>/t1_corr.csv, t1_ols.csv
 ※ T1 표준오차 방식은 계획서에 지정 없음 → 다른 검정과 같은 HC3 사용
 """
 import pandas as pd
@@ -62,7 +62,7 @@ pd.concat(ols_rows).to_csv(C.OUT_DIR / "t1_ols.csv", index=False)
 #         늘기도 해서, 부호 있는 ΔKalshi로는 효과가 상쇄됨.
 #         Δ2Y²는 항상 양수(움직임 크기)이므로 Kalshi도 변화 '크기'로 비교
 #   방법: 상관(피어슨·스피어만) + OLS(HC3), 종속변수 Δ2Y², 설명변수 |ΔKalshi|
-#   출력: outputs_verify/t1_abs.csv
+#   출력: outputs/<timing>/t1_abs.csv
 # ------------------------------------------------------------------
 log.info("--- 추가 사양: |ΔKalshi| ~ Δ2Y² ---")
 abs_rows = []

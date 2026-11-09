@@ -8,10 +8,9 @@ kalshi_fomc_moments.csv
 daily_*.csv
 data/
 zq/
-outputs_verify/panel_*.csv
 __pycache__/
 .DS_Store
 venv*/
 trade_level*.csv
 trades_fomc/
-outputs_verify*/panel_*.csv
+outputs/*/panel_*.csv

@@ -19,19 +19,24 @@ from pathlib import Path
 # 1. 폴더 구조
 #    project_root/
 #      data/            ← 수집한 원자료
-#      outputs_verify/  ← 이 파이프라인이 만드는 중간·결과 파일
+#      outputs/<timing>/  ← 이 파이프라인이 만드는 중간·결과 파일 (timing = et16 / utc / orig)
 # ------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("FOMC_DATA_DIR", ROOT))   # 기본: 스크립트와 같은 폴더. 다른 곳이면 FOMC_DATA_DIR로 지정
 # Kalshi 일별 가격 기준 시각 (09_build_kalshi_daily_et.py 참고)
-#   ""   : 기존 R 출력 daily_distributions_fed_levels.csv 사용 (UTC 기준)
-#   "utc": 09가 만든 UTC 기준 파일,  "et16": 09가 만든 동부시간 오후 4시 기준 파일
-#   실행 예: KALSHI_TIMING=et16 python3 run_all.py  → 결과는 outputs_verify_et16/
-KALSHI_TIMING = os.environ.get("KALSHI_TIMING", "")
-KALSHI_DIST_FILE = DATA_DIR / (f"daily_distributions_fed_levels_{KALSHI_TIMING}.csv" if KALSHI_TIMING
-                               else "daily_distributions_fed_levels.csv")
-OUT_DIR = ROOT / ("outputs_verify" + (f"_{KALSHI_TIMING}" if KALSHI_TIMING else ""))
-OUT_DIR.mkdir(exist_ok=True)
+#   "et16"(기본): 09가 만든 동부시간 오후 4시 기준 분포 — MOVE·2년물 종가 시각과 맞춤
+#   "utc"       : 09가 만든 UTC 기준 분포 (원저자 R 코드와 같은 기준, 동시각 체결은 VWAP)
+#   "orig"      : 원저자 R 코드로 만든 기존 파일 daily_distributions_fed_levels.csv
+#   실행 예: KALSHI_TIMING=utc python3 run_all.py  → 결과는 outputs/utc/
+KALSHI_TIMING = os.environ.get("KALSHI_TIMING", "et16")
+_DIST = {"et16": "daily_distributions_fed_levels_et16.csv",
+         "utc": "daily_distributions_fed_levels_utc.csv",
+         "orig": "daily_distributions_fed_levels.csv"}
+if KALSHI_TIMING not in _DIST:
+    raise SystemExit(f"KALSHI_TIMING은 {list(_DIST)} 중 하나여야 함: {KALSHI_TIMING}")
+KALSHI_DIST_FILE = DATA_DIR / _DIST[KALSHI_TIMING]
+OUT_DIR = ROOT / "outputs" / KALSHI_TIMING
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ------------------------------------------------------------------
 # 2. 입력 파일명 (계획서 2장 데이터 번호와 대응)
