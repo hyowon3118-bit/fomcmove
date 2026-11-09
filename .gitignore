@@ -1,0 +1,14 @@
+# 원자료·중간 패널은 로컬에만 보관
+*.xlsx
+DGS2.csv
+MOVE.csv
+VIXCLS.csv
+fomc_dates.csv
+kalshi_fomc_moments.csv
+daily_*.csv
+data/
+zq/
+outputs_verify/panel_*.csv
+__pycache__/
+.DS_Store
+venv*/
