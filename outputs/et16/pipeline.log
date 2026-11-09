@@ -130,3 +130,216 @@
 00:23:01 [INFO] 07_T5 | === STEP 07 (T5) 완료 ===
 00:23:01 [INFO] run_all | [5/5] ✔ 07 완료 (0.5초)
 00:23:01 [INFO] run_all | 전체 완료 (4.6초). 결과: /home/claude/fomcmove/outputs/et16
+00:58:05 [INFO] run_all | [1/3] ▶ 05 일별 분석 패널 생성 시작
+00:58:06 [INFO] 05_panel | === STEP 05: 분석용 패널 생성 시작 ===
+00:58:06 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+00:58:06 [INFO] utils | Kalshi: 7,713행, 회의 51개, h 분포 {1: 1868, 2: 1777, 3: 1779, 4: 1619, 5: 192, 6: 177, 7: 126, 8: 84, 9: 51, 10: 40}
+00:58:06 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
+00:58:06 [INFO] utils | MOVE: 1,227행, 2021-12-01 ~ 2026-11-02
+00:58:06 [INFO] utils | FRED vix: 1,288행, 2021-10-28 ~ 2026-10-28
+00:58:06 [INFO] 05_panel | 일별 뼈대: 1,207 거래일, MOVE 결측 3일
+00:58:06 [INFO] 05_panel | h=1: Kalshi std 결측 2일
+00:58:06 [INFO] 05_panel | h=2: Kalshi std 결측 0일
+00:58:06 [INFO] 05_panel | h=1: Δstd 비결측 1203일 (그중 FOMC 당일 39일)
+00:58:06 [INFO] 05_panel | h=2: Δstd 비결측 1206일 (그중 FOMC 당일 39일)
+00:58:07 [INFO] 05_panel | panel_daily.csv 저장: (1207, 27)
+00:58:07 [INFO] 05_panel | === STEP 05 완료 ===
+00:58:07 [INFO] run_all | [1/3] ✔ 05 완료 (1.7초)
+00:58:07 [INFO] run_all | [2/3] ▶ 06 T1 일간 동조성 시작
+00:58:07 [INFO] 06_T1 | === STEP 06 (T1): 일간 동조성 검정 시작 ===
+00:58:07 [INFO] 06_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1197 피어슨=0.143(p=0.000) 스피어만=0.096(p=0.001)
+00:58:07 [INFO] 06_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1203 피어슨=0.036(p=0.213) 스피어만=-0.038(p=0.186)
+00:58:07 [INFO] 06_T1 | h=1 d_k_std_bp_h1        vs d2y_abs n=1203 피어슨=-0.015(p=0.612) 스피어만=-0.038(p=0.186)
+00:58:07 [INFO] 06_T1 | h=1 d_k_entropy_h1       vs d_move  n=1199 피어슨=0.179(p=0.000) 스피어만=0.127(p=0.000)
+00:58:07 [INFO] 06_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1205 피어슨=0.055(p=0.058) 스피어만=-0.045(p=0.117)
+00:58:07 [INFO] 06_T1 | h=1 d_k_entropy_h1       vs d2y_abs n=1205 피어슨=-0.016(p=0.590) 스피어만=-0.045(p=0.117)
+00:58:07 [INFO] 06_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1200 피어슨=0.120(p=0.000) 스피어만=0.074(p=0.011)
+00:58:07 [INFO] 06_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1206 피어슨=0.022(p=0.440) 스피어만=-0.034(p=0.240)
+00:58:07 [INFO] 06_T1 | h=2 d_k_std_bp_h2        vs d2y_abs n=1206 피어슨=-0.022(p=0.450) 스피어만=-0.034(p=0.240)
+00:58:07 [INFO] 06_T1 | h=2 d_k_entropy_h2       vs d_move  n=1200 피어슨=0.130(p=0.000) 스피어만=0.092(p=0.001)
+00:58:07 [INFO] 06_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1206 피어슨=0.042(p=0.147) 스피어만=-0.018(p=0.525)
+00:58:07 [INFO] 06_T1 | h=2 d_k_entropy_h2       vs d2y_abs n=1206 피어슨=-0.013(p=0.655) 스피어만=-0.018(p=0.525)
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all,HC3]] cov=HC3 N=1197, R²=0.020
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.4062  se=0.1044  p=0.0001
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all,HAC]] cov=HAC(lag=6) N=1197, R²=0.020
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.4062  se=0.1108  p=0.0002
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC,HC3]] cov=HC3 N=1158, R²=0.020
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.4425  se=0.1226  p=0.0003
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1158, R²=0.020
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.4425  se=0.1216  p=0.0003
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all,HC3]] cov=HC3 N=1203, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 2.7534  se=5.0961  p=0.5890
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all,HAC]] cov=HAC(lag=6) N=1203, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 2.7534  se=4.9039  p=0.5745
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC,HC3]] cov=HC3 N=1164, R²=0.005
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 5.7975  se=6.2488  p=0.3535
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1164, R²=0.005
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 5.7975  se=6.1185  p=0.3434
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_std_bp_h1 [all,HC3]] cov=HC3 N=1203, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b=-0.0403  se=0.1345  p=0.7645
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_std_bp_h1 [all,HAC]] cov=HAC(lag=6) N=1203, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b=-0.0403  se=0.1273  p=0.7517
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_std_bp_h1 [exFOMC,HC3]] cov=HC3 N=1164, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.0468  se=0.1593  p=0.7687
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_std_bp_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1164, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.0468  se=0.1551  p=0.7626
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [all,HC3]] cov=HC3 N=1199, R²=0.032
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 9.9664  se=2.2574  p=0.0000
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [all,HAC]] cov=HAC(lag=6) N=1199, R²=0.032
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 9.9664  se=2.2077  p=0.0000
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC,HC3]] cov=HC3 N=1160, R²=0.032
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 10.3619  se=2.4770  p=0.0000
+00:58:07 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1160, R²=0.032
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 10.3619  se=2.2993  p=0.0000
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all,HC3]] cov=HC3 N=1205, R²=0.003
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 82.3740  se=126.8736  p=0.5162
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all,HAC]] cov=HAC(lag=6) N=1205, R²=0.003
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 82.3740  se=119.5888  p=0.4909
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC,HC3]] cov=HC3 N=1166, R²=0.006
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 122.1734  se=141.9544  p=0.3894
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1166, R²=0.006
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 122.1734  se=137.3720  p=0.3738
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_entropy_h1 [all,HC3]] cov=HC3 N=1205, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b=-0.8412  se=3.1036  p=0.7863
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_entropy_h1 [all,HAC]] cov=HAC(lag=6) N=1205, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b=-0.8412  se=2.8073  p=0.7644
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_entropy_h1 [exFOMC,HC3]] cov=HC3 N=1166, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 0.4325  se=3.4323  p=0.8997
+00:58:07 [INFO] 06_T1 | [T1 h1 d2y_abs~d_k_entropy_h1 [exFOMC,HAC]] cov=HAC(lag=6) N=1166, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h1               b= 0.4325  se=3.2504  p=0.8941
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all,HC3]] cov=HC3 N=1200, R²=0.014
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.2173  se=0.0688  p=0.0016
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all,HAC]] cov=HAC(lag=6) N=1200, R²=0.014
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.2173  se=0.0699  p=0.0019
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC,HC3]] cov=HC3 N=1161, R²=0.010
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.1788  se=0.0714  p=0.0123
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1161, R²=0.010
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.1788  se=0.0739  p=0.0155
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all,HC3]] cov=HC3 N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.0861  se=3.9916  p=0.7855
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all,HAC]] cov=HAC(lag=6) N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.0861  se=3.7387  p=0.7714
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC,HC3]] cov=HC3 N=1167, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.1330  se=4.2521  p=0.7899
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1167, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.1330  se=3.9556  p=0.7746
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_std_bp_h2 [all,HC3]] cov=HC3 N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b=-0.0382  se=0.0850  p=0.6532
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_std_bp_h2 [all,HAC]] cov=HAC(lag=6) N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b=-0.0382  se=0.0817  p=0.6400
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_std_bp_h2 [exFOMC,HC3]] cov=HC3 N=1167, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b=-0.0362  se=0.0901  p=0.6879
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_std_bp_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1167, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_std_bp_h2                b=-0.0362  se=0.0850  p=0.6700
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [all,HC3]] cov=HC3 N=1200, R²=0.017
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 6.1790  se=1.9918  p=0.0019
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [all,HAC]] cov=HAC(lag=6) N=1200, R²=0.017
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 6.1790  se=2.0652  p=0.0028
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC,HC3]] cov=HC3 N=1161, R²=0.014
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 5.5461  se=2.0577  p=0.0070
+00:58:07 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1161, R²=0.014
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 5.5461  se=2.2271  p=0.0128
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all,HC3]] cov=HC3 N=1206, R²=0.002
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 53.3945  se=121.8565  p=0.6613
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all,HAC]] cov=HAC(lag=6) N=1206, R²=0.002
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 53.3945  se=114.0543  p=0.6397
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC,HC3]] cov=HC3 N=1167, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 40.3160  se=127.8105  p=0.7524
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1167, R²=0.001
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b= 40.3160  se=117.5158  p=0.7315
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_entropy_h2 [all,HC3]] cov=HC3 N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b=-0.5908  se=2.5490  p=0.8167
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_entropy_h2 [all,HAC]] cov=HAC(lag=6) N=1206, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b=-0.5908  se=2.4101  p=0.8063
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_entropy_h2 [exFOMC,HC3]] cov=HC3 N=1167, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b=-0.9376  se=2.6467  p=0.7232
+00:58:07 [INFO] 06_T1 | [T1 h2 d2y_abs~d_k_entropy_h2 [exFOMC,HAC]] cov=HAC(lag=6) N=1167, R²=0.000
+00:58:07 [INFO] 06_T1 |     d_k_entropy_h2               b=-0.9376  se=2.4200  p=0.6984
+00:58:07 [INFO] 06_T1 | --- 추가 사양: |ΔKalshi| ~ (Δ2Y)², |Δ2Y| ---
+00:58:07 [INFO] 06_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_sq  n=1203 피어슨=0.194(p=0.000) 스피어만=0.121(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1[HC3]] cov=HC3 N=1203, R²=0.037
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h1            b= 18.7111  se=5.7939  p=0.0012
+00:58:07 [INFO] 06_T1 | [판단] h=1 |Δstd_bp| vs d2y_sq: b=18.711, p=0.0012 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1[HAC]] cov=HAC(lag=6) N=1203, R²=0.037
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h1            b= 18.7111  se=6.4119  p=0.0035
+00:58:07 [INFO] 06_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_abs n=1203 피어슨=0.191(p=0.000) 스피어만=0.121(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_abs~abs_d_k_std_bp_h1[HC3]] cov=HC3 N=1203, R²=0.036
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h1            b= 0.6615  se=0.1622  p=0.0000
+00:58:07 [INFO] 06_T1 | [판단] h=1 |Δstd_bp| vs d2y_abs: b=0.661, p=0.0000 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_abs~abs_d_k_std_bp_h1[HAC]] cov=HAC(lag=6) N=1203, R²=0.036
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h1            b= 0.6615  se=0.1890  p=0.0005
+00:58:07 [INFO] 06_T1 | h=1 abs_d_k_entropy_h1       vs d2y_sq  n=1205 피어슨=0.253(p=0.000) 스피어만=0.160(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1[HC3]] cov=HC3 N=1205, R²=0.064
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h1           b= 500.2502  se=156.2201  p=0.0014
+00:58:07 [INFO] 06_T1 | [판단] h=1 |Δentropy| vs d2y_sq: b=500.250, p=0.0014 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1[HAC]] cov=HAC(lag=6) N=1205, R²=0.064
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h1           b= 500.2502  se=170.6605  p=0.0034
+00:58:07 [INFO] 06_T1 | h=1 abs_d_k_entropy_h1       vs d2y_abs n=1205 피어슨=0.266(p=0.000) 스피어만=0.160(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_abs~abs_d_k_entropy_h1[HC3]] cov=HC3 N=1205, R²=0.071
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h1           b= 18.8682  se=3.6547  p=0.0000
+00:58:07 [INFO] 06_T1 | [판단] h=1 |Δentropy| vs d2y_abs: b=18.868, p=0.0000 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h1 d2y_abs~abs_d_k_entropy_h1[HAC]] cov=HAC(lag=6) N=1205, R²=0.071
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h1           b= 18.8682  se=4.3259  p=0.0000
+00:58:07 [INFO] 06_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_sq  n=1206 피어슨=0.151(p=0.000) 스피어만=0.079(p=0.006)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2[HC3]] cov=HC3 N=1206, R²=0.023
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h2            b= 8.6781  se=4.7526  p=0.0679
+00:58:07 [INFO] 06_T1 | [판단] h=2 |Δstd_bp| vs d2y_sq: b=8.678, p=0.0679 → 기준 미충족
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2[HAC]] cov=HAC(lag=6) N=1206, R²=0.023
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h2            b= 8.6781  se=4.8478  p=0.0734
+00:58:07 [INFO] 06_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_abs n=1206 피어슨=0.121(p=0.000) 스피어만=0.079(p=0.006)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_abs~abs_d_k_std_bp_h2[HC3]] cov=HC3 N=1206, R²=0.015
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h2            b= 0.2488  se=0.1052  p=0.0180
+00:58:07 [INFO] 06_T1 | [판단] h=2 |Δstd_bp| vs d2y_abs: b=0.249, p=0.0180 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_abs~abs_d_k_std_bp_h2[HAC]] cov=HAC(lag=6) N=1206, R²=0.015
+00:58:07 [INFO] 06_T1 |     abs_d_k_std_bp_h2            b= 0.2488  se=0.1117  p=0.0258
+00:58:07 [INFO] 06_T1 | h=2 abs_d_k_entropy_h2       vs d2y_sq  n=1206 피어슨=0.237(p=0.000) 스피어만=0.133(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2[HC3]] cov=HC3 N=1206, R²=0.056
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h2           b= 387.4802  se=160.5179  p=0.0158
+00:58:07 [INFO] 06_T1 | [판단] h=2 |Δentropy| vs d2y_sq: b=387.480, p=0.0158 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2[HAC]] cov=HAC(lag=6) N=1206, R²=0.056
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h2           b= 387.4802  se=174.2649  p=0.0262
+00:58:07 [INFO] 06_T1 | h=2 abs_d_k_entropy_h2       vs d2y_abs n=1206 피어슨=0.234(p=0.000) 스피어만=0.133(p=0.000)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_abs~abs_d_k_entropy_h2[HC3]] cov=HC3 N=1206, R²=0.055
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h2           b= 13.7829  se=3.0672  p=0.0000
+00:58:07 [INFO] 06_T1 | [판단] h=2 |Δentropy| vs d2y_abs: b=13.783, p=0.0000 → b>0 & 유의 (크기가 함께 움직임)
+00:58:07 [INFO] 06_T1 | [T1abs h2 d2y_abs~abs_d_k_entropy_h2[HAC]] cov=HAC(lag=6) N=1206, R²=0.055
+00:58:07 [INFO] 06_T1 |     abs_d_k_entropy_h2           b= 13.7829  se=3.5849  p=0.0001
+00:58:07 [INFO] 06_T1 | === STEP 06 (T1) 완료 ===
+00:58:07 [INFO] run_all | [2/3] ✔ 06 완료 (0.3초)
+00:58:07 [INFO] run_all | [3/3] ▶ 07 T5 Granger 선후행 시작
+00:58:07 [INFO] 07_T5 | === STEP 07 (T5): Granger 선후행 검정 시작 ===
+00:58:07 [INFO] 07_T5 | --- h=2: d_k_std_bp_h2 ↔ d_move | 사용 1200일 (결측 제거 7일)
+00:58:07 [INFO] 07_T5 |     ADF d_k_std_bp_h2: p=0.0000 (정상)
+00:58:07 [INFO] 07_T5 |     ADF d_move: p=0.0000 (정상)
+00:58:07 [INFO] 07_T5 |     선택 시차: BIC=3 (참고 AIC=10, HQIC=6) → 3
+00:58:07 [INFO] 07_T5 |     [주,HC3] d_k_std_bp_h2 → d_move: 시차 3, F(3,1190)=0.340, p=0.7961 
+00:58:07 [INFO] 07_T5 |     [주,HAC] d_k_std_bp_h2 → d_move: 시차 3, F(3,1190)=0.510, p=0.6753 
+00:58:07 [INFO] 07_T5 |     [주,HC3] d_move → d_k_std_bp_h2: 시차 3, F(3,1190)=1.583, p=0.1918 
+00:58:07 [INFO] 07_T5 |     [주,HAC] d_move → d_k_std_bp_h2: 시차 3, F(3,1190)=1.513, p=0.2093 
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HC3] Kalshi→MOVE: L1:0.440 L2:0.698 L3:0.796 L5:0.663 L10:0.534
+00:58:07 [INFO] 07_T5 |     [연도 제외,HC3, 시차 3] Kalshi→MOVE: 2022제외:0.811 2023제외:0.992 2024제외:0.711 2025제외:0.880 2026제외:0.154
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HAC] Kalshi→MOVE: L1:0.423 L2:0.674 L3:0.675 L5:0.692 L10:0.334
+00:58:07 [INFO] 07_T5 |     [연도 제외,HAC, 시차 3] Kalshi→MOVE: 2022제외:0.686 2023제외:0.988 2024제외:0.475 2025제외:0.809 2026제외:0.126
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HC3] MOVE→Kalshi: L1:0.041 L2:0.103 L3:0.192 L5:0.238 L10:0.351
+00:58:07 [INFO] 07_T5 |     [연도 제외,HC3, 시차 3] MOVE→Kalshi: 2022제외:0.391 2023제외:0.238 2024제외:0.190 2025제외:0.085 2026제외:0.345
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HAC] MOVE→Kalshi: L1:0.041 L2:0.117 L3:0.209 L5:0.328 L10:0.186
+00:58:07 [INFO] 07_T5 |     [연도 제외,HAC, 시차 3] MOVE→Kalshi: 2022제외:0.406 2023제외:0.311 2024제외:0.205 2025제외:0.091 2026제외:0.353
+00:58:07 [INFO] 07_T5 | --- h=1: d_k_std_bp_h1 ↔ d_move | 사용 1197일 (결측 제거 10일)
+00:58:07 [INFO] 07_T5 |     ADF d_k_std_bp_h1: p=0.0000 (정상)
+00:58:07 [INFO] 07_T5 |     ADF d_move: p=0.0000 (정상)
+00:58:07 [INFO] 07_T5 |     선택 시차: BIC=3 (참고 AIC=7, HQIC=6) → 3
+00:58:07 [INFO] 07_T5 |     [주,HC3] d_k_std_bp_h1 → d_move: 시차 3, F(3,1187)=1.439, p=0.2297 
+00:58:07 [INFO] 07_T5 |     [주,HAC] d_k_std_bp_h1 → d_move: 시차 3, F(3,1187)=1.364, p=0.2522 
+00:58:07 [INFO] 07_T5 |     [주,HC3] d_move → d_k_std_bp_h1: 시차 3, F(3,1187)=1.614, p=0.1843 
+00:58:07 [INFO] 07_T5 |     [주,HAC] d_move → d_k_std_bp_h1: 시차 3, F(3,1187)=1.698, p=0.1656 
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HC3] Kalshi→MOVE: L1:0.206 L2:0.222 L3:0.230 L5:0.029 L10:0.087
+00:58:07 [INFO] 07_T5 |     [연도 제외,HC3, 시차 3] Kalshi→MOVE: 2022제외:0.110 2023제외:0.177 2024제외:0.359 2025제외:0.588 2026제외:0.245
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HAC] Kalshi→MOVE: L1:0.247 L2:0.263 L3:0.252 L5:0.030 L10:0.065
+00:58:07 [INFO] 07_T5 |     [연도 제외,HAC, 시차 3] Kalshi→MOVE: 2022제외:0.124 2023제외:0.155 2024제외:0.334 2025제외:0.611 2026제외:0.270
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HC3] MOVE→Kalshi: L1:0.115 L2:0.148 L3:0.184 L5:0.241 L10:0.274
+00:58:07 [INFO] 07_T5 |     [연도 제외,HC3, 시차 3] MOVE→Kalshi: 2022제외:0.851 2023제외:0.304 2024제외:0.096 2025제외:0.109 2026제외:0.111
+00:58:07 [INFO] 07_T5 |     [시차 민감도,HAC] MOVE→Kalshi: L1:0.085 L2:0.119 L3:0.166 L5:0.154 L10:0.100
+00:58:07 [INFO] 07_T5 |     [연도 제외,HAC, 시차 3] MOVE→Kalshi: 2022제외:0.825 2023제외:0.315 2024제외:0.078 2025제외:0.085 2026제외:0.054
+00:58:07 [INFO] 07_T5 | === STEP 07 (T5) 완료 ===
+00:58:07 [INFO] run_all | [3/3] ✔ 07 완료 (0.6초)
+00:58:07 [INFO] run_all | 전체 완료 (2.7초). 결과: /home/claude/fomcmove/outputs/et16

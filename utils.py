@@ -73,12 +73,16 @@ def load_kalshi(fomc_dates):
 
 
 # ------------------------------------------------------------------
-# [블록 5] 2년물 금리 → 일간 변화(bp)와 제곱
+# [블록 5] 2년물 금리 → 일간 변화(bp), 제곱, 절대값
+#   [수정 2026-11-10] 피드백: "Δ2Y²"가 (Δ2Y)²인지 Δ(2Y²)인지 모호 → 코드는
+#   원래부터 (ΔDGS2_bp)² (= d2y_sq, 변화량의 제곱)이었음. 표기를 "(Δ2Y)²"로
+#   명확히 하고, 하루치 제곱변화는 노이즈가 커서 절대변화(d2y_abs)를 같이 봄
 # ------------------------------------------------------------------
 def load_dgs2():
     df = read_fred_csv(C.FILES["dgs2"], "dgs2")
     df["d2y_bp"] = df["dgs2"].diff() * 100          # %p → bp
-    df["d2y_sq"] = df["d2y_bp"] ** 2                # A10: 변동성 대용치
+    df["d2y_sq"] = df["d2y_bp"] ** 2                # A10: 변동성 대용치, 표기 (Δ2Y)²
+    df["d2y_abs"] = df["d2y_bp"].abs()              # 보조: |Δ2Y| (bp) — 제곱보다 노이즈 적음
     return df
 
 
@@ -126,7 +130,19 @@ def diff_within_meeting(df, value_col, meeting_col):
 
 
 # ------------------------------------------------------------------
-# [블록 9] OLS + HC3 회귀 실행 후 결과를 표 한 줄씩으로 정리
+# [블록 9] 자기상관 포함 여부에 따른 공분산 선택
+#   HC3: 이분산에만 강건, 시계열 자기상관은 처리 못 함
+#   HAC(Newey-West): 이분산 + 자기상관 모두 처리. truncation lag은
+#   관행 규칙(Newey-West 1994) floor(4·(T/100)^(2/9)) 사용
+#   ※ 이 lag 규칙 자체의 선택 근거(왜 이 공식인지)는 문헌에서 확인 못 함 → "근거 미확인"
+# ------------------------------------------------------------------
+def nw_maxlags(n):
+    return max(1, int(np.floor(4 * (n / 100) ** (2 / 9))))
+
+
+# ------------------------------------------------------------------
+# [블록 10] OLS 회귀 실행 후 결과를 표 한 줄씩으로 정리
+#   cov="HC3"(이분산 강건) 또는 "HAC"(+ 자기상관 강건, Newey-West)
 # ------------------------------------------------------------------
 def run_ols(df, y, xs, label, cov="HC3", logger=None):
     logger = logger or log
@@ -134,14 +150,19 @@ def run_ols(df, y, xs, label, cov="HC3", logger=None):
     if len(d) < len(xs) + 5:
         logger.warning(f"[{label}] 관측치 {len(d)}개로 너무 적어 건너뜀")
         return None, pd.DataFrame()
-    model = sm.OLS(d[y], sm.add_constant(d[xs])).fit(cov_type=cov)
-    logger.info(f"[{label}] N={int(model.nobs)}, R²={model.rsquared:.3f}")
+    if cov == "HAC":
+        lag = nw_maxlags(len(d))
+        model = sm.OLS(d[y], sm.add_constant(d[xs])).fit(cov_type="HAC", cov_kwds={"maxlags": lag})
+    else:
+        lag = None
+        model = sm.OLS(d[y], sm.add_constant(d[xs])).fit(cov_type=cov)
+    logger.info(f"[{label}] cov={cov}{f'(lag={lag})' if lag else ''} N={int(model.nobs)}, R²={model.rsquared:.3f}")
     for x in xs:
         logger.info(f"    {x:<28} b={model.params[x]: .4f}  se={model.bse[x]:.4f}  p={model.pvalues[x]:.4f}")
     rows = pd.DataFrame({
         "model": label, "y": y, "var": model.params.index,
         "coef": model.params.values, "se": model.bse.values,
         "t": model.tvalues.values, "p": model.pvalues.values,
-        "nobs": int(model.nobs), "r2": model.rsquared,
+        "nobs": int(model.nobs), "r2": model.rsquared, "cov": cov, "hac_lag": lag,
     })
     return model, rows
