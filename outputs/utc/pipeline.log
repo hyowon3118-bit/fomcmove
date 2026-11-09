@@ -1,0 +1,132 @@
+00:23:01 [INFO] run_all | [1/5] ▶ 03 Kalshi 확률분포 → 모멘트 변환 시작
+00:23:02 [INFO] 03_kalshi | === STEP 03: Kalshi 확률분포 → 모멘트 변환 시작 ===
+00:23:02 [INFO] 03_kalshi | 입력 daily_distributions_fed_levels_utc.csv
+00:23:02 [INFO] 03_kalshi | 원자료 85,965행, 계약 52개, 2021-07-02 ~ 2026-11-09
+00:23:02 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+00:23:02 [WARNING] 03_kalshi | FOMC 일정에 없는 계약 1개 → 제외: ['KXFED-28JAN']
+00:23:03 [INFO] 03_kalshi | 회의 매칭 후 85,933행, 회의 51개
+00:23:04 [INFO] 03_kalshi | 모멘트 7,753행 생성. std=0(왜도·첨도 NaN) 72행
+00:23:04 [INFO] 03_kalshi | std_bp 요약: 평균 22.81, 중앙값 21.50, 최대 109.09
+00:23:04 [INFO] 03_kalshi | 저장: kalshi_fomc_moments.csv
+00:23:04 [INFO] 03_kalshi | === STEP 03 완료 ===
+00:23:04 [INFO] run_all | [1/5] ✔ 03 완료 (2.8초)
+00:23:04 [INFO] run_all | [2/5] ▶ 04 입력 파일 점검 시작
+00:23:04 [INFO] 04_check | === STEP 04: 입력 파일 점검 시작 ===
+00:23:04 [INFO] 04_check | kalshi     OK   kalshi_fomc_moments.csv
+00:23:04 [INFO] 04_check | fomc       OK   fomc_dates.csv
+00:23:04 [INFO] 04_check | dgs2       OK   DGS2.csv
+00:23:04 [INFO] 04_check | move       OK   MOVE.csv
+00:23:04 [INFO] 04_check | vix        OK   VIXCLS.csv
+00:23:04 [INFO] 04_check | [kalshi] 컬럼: ['date', 'meeting_date', 'mean', 'std_bp', 'entropy', 'skewness', 'kurtosis', 'n_strikes']
+00:23:04 [INFO] 04_check | [kalshi] 첫 행: {'date': '2021-07-02', 'meeting_date': '2021-07-28', 'mean': 0.0153061224489795, 'std_bp': 5.993540879832006, 'entropy': 0.2303235408758776, 'skewness': 3.660403082262618, 'kurtosis': 14.398550724637678, 'n_strikes': 2.0}
+00:23:04 [INFO] 04_check | [fomc] 컬럼: ['date']
+00:23:04 [INFO] 04_check | [fomc] 첫 행: {'date': '2021-01-27'}
+00:23:04 [INFO] 04_check | [dgs2] 컬럼: ['observation_date', 'DGS2']
+00:23:04 [INFO] 04_check | [dgs2] 첫 행: {'observation_date': '2021-11-01', 'DGS2': 0.5}
+00:23:04 [INFO] 04_check | [move] 컬럼: ['Date', 'Close']
+00:23:04 [INFO] 04_check | [move] 첫 행: {'Date': '2021-12-01', 'Close': 82.97000122070312}
+00:23:04 [INFO] 04_check | [vix] 컬럼: ['observation_date', 'VIXCLS']
+00:23:04 [INFO] 04_check | [vix] 첫 행: {'observation_date': '2021-10-28', 'VIXCLS': 16.53}
+00:23:04 [INFO] 04_check | === STEP 04 완료: 위 컬럼명을 보고 config.py 수정 ===
+00:23:04 [INFO] run_all | [2/5] ✔ 04 완료 (0.0초)
+00:23:04 [INFO] run_all | [3/5] ▶ 05 일별 분석 패널 생성 시작
+00:23:04 [INFO] 05_panel | === STEP 05: 분석용 패널 생성 시작 ===
+00:23:04 [INFO] utils | FOMC 회의일: 56개, 2021-01-27 ~ 2027-12-08
+00:23:04 [INFO] utils | Kalshi: 7,715행, 회의 51개, h 분포 {1: 1868, 2: 1776, 3: 1779, 4: 1621, 5: 192, 6: 178, 7: 126, 8: 84, 9: 51, 10: 40}
+00:23:04 [INFO] utils | FRED dgs2: 1,249행, 2021-11-01 ~ 2026-10-30
+00:23:04 [INFO] utils | MOVE: 1,227행, 2021-12-01 ~ 2026-11-02
+00:23:04 [INFO] utils | FRED vix: 1,288행, 2021-10-28 ~ 2026-10-28
+00:23:04 [INFO] 05_panel | 일별 뼈대: 1,207 거래일, MOVE 결측 3일
+00:23:04 [INFO] 05_panel | h=1: Kalshi std 결측 3일
+00:23:04 [INFO] 05_panel | h=2: Kalshi std 결측 0일
+00:23:04 [INFO] 05_panel | h=1: Δstd 비결측 1201일 (그중 FOMC 당일 39일)
+00:23:04 [INFO] 05_panel | h=2: Δstd 비결측 1206일 (그중 FOMC 당일 39일)
+00:23:04 [INFO] 05_panel | panel_daily.csv 저장: (1207, 26)
+00:23:04 [INFO] 05_panel | === STEP 05 완료 ===
+00:23:04 [INFO] run_all | [3/5] ✔ 05 완료 (0.1초)
+00:23:04 [INFO] run_all | [4/5] ▶ 06 T1 일간 동조성 시작
+00:23:04 [INFO] 06_T1 | === STEP 06 (T1): 일간 동조성 검정 시작 ===
+00:23:04 [INFO] 06_T1 | h=1 d_k_std_bp_h1        vs d_move  n=1195 피어슨=0.136(p=0.000) 스피어만=0.092(p=0.001)
+00:23:04 [INFO] 06_T1 | h=1 d_k_std_bp_h1        vs d2y_sq  n=1201 피어슨=0.036(p=0.215) 스피어만=-0.022(p=0.448)
+00:23:04 [INFO] 06_T1 | h=1 d_k_entropy_h1       vs d_move  n=1199 피어슨=0.177(p=0.000) 스피어만=0.108(p=0.000)
+00:23:04 [INFO] 06_T1 | h=1 d_k_entropy_h1       vs d2y_sq  n=1205 피어슨=0.057(p=0.050) 스피어만=-0.032(p=0.273)
+00:23:04 [INFO] 06_T1 | h=2 d_k_std_bp_h2        vs d_move  n=1200 피어슨=0.127(p=0.000) 스피어만=0.100(p=0.000)
+00:23:04 [INFO] 06_T1 | h=2 d_k_std_bp_h2        vs d2y_sq  n=1206 피어슨=0.038(p=0.192) 스피어만=-0.008(p=0.786)
+00:23:04 [INFO] 06_T1 | h=2 d_k_entropy_h2       vs d_move  n=1200 피어슨=0.129(p=0.000) 스피어만=0.101(p=0.000)
+00:23:04 [INFO] 06_T1 | h=2 d_k_entropy_h2       vs d2y_sq  n=1206 피어슨=0.051(p=0.078) 스피어만=-0.003(p=0.920)
+00:23:04 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [all]] N=1195, R²=0.018
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.3857  se=0.1055  p=0.0003
+00:23:04 [INFO] 06_T1 | [T1 h1 d_move~d_k_std_bp_h1 [exFOMC]] N=1156, R²=0.016
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h1                b= 0.3978  se=0.1260  p=0.0016
+00:23:04 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [all]] N=1201, R²=0.001
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h1                b= 2.7571  se=5.3485  p=0.6062
+00:23:04 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_std_bp_h1 [exFOMC]] N=1162, R²=0.005
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h1                b= 5.9124  se=6.5555  p=0.3671
+00:23:04 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [all]] N=1199, R²=0.031
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h1               b= 9.6647  se=2.2024  p=0.0000
+00:23:04 [INFO] 06_T1 | [T1 h1 d_move~d_k_entropy_h1 [exFOMC]] N=1160, R²=0.029
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h1               b= 9.8983  se=2.5351  p=0.0001
+00:23:04 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [all]] N=1205, R²=0.003
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h1               b= 83.6776  se=135.8582  p=0.5379
+00:23:04 [INFO] 06_T1 | [T1 h1 d2y_sq~d_k_entropy_h1 [exFOMC]] N=1166, R²=0.006
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h1               b= 121.4523  se=158.3189  p=0.4430
+00:23:04 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [all]] N=1200, R²=0.016
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.2438  se=0.0768  p=0.0015
+00:23:04 [INFO] 06_T1 | [T1 h2 d_move~d_k_std_bp_h2 [exFOMC]] N=1161, R²=0.012
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h2                b= 0.2121  se=0.0803  p=0.0083
+00:23:04 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [all]] N=1206, R²=0.001
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.9341  se=4.4919  p=0.6668
+00:23:04 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_std_bp_h2 [exFOMC]] N=1167, R²=0.001
+00:23:04 [INFO] 06_T1 |     d_k_std_bp_h2                b= 1.8968  se=4.7910  p=0.6922
+00:23:04 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [all]] N=1200, R²=0.017
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h2               b= 5.9817  se=2.0353  p=0.0033
+00:23:04 [INFO] 06_T1 | [T1 h2 d_move~d_k_entropy_h2 [exFOMC]] N=1161, R²=0.013
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h2               b= 5.3467  se=2.1022  p=0.0110
+00:23:04 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [all]] N=1206, R²=0.003
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h2               b= 63.2519  se=124.1643  p=0.6105
+00:23:04 [INFO] 06_T1 | [T1 h2 d2y_sq~d_k_entropy_h2 [exFOMC]] N=1167, R²=0.002
+00:23:04 [INFO] 06_T1 |     d_k_entropy_h2               b= 58.2468  se=130.0649  p=0.6543
+00:23:04 [INFO] 06_T1 | --- 추가 사양: |ΔKalshi| ~ Δ2Y² ---
+00:23:04 [INFO] 06_T1 | h=1 abs_d_k_std_bp_h1        vs d2y_sq n=1201 피어슨=0.187(p=0.000) 스피어만=0.095(p=0.001)
+00:23:04 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_std_bp_h1] N=1201, R²=0.035
+00:23:04 [INFO] 06_T1 |     abs_d_k_std_bp_h1            b= 18.3064  se=6.1521  p=0.0029
+00:23:04 [INFO] 06_T1 | [판단] h=1 |Δstd_bp|: b=18.306, p=0.0029 → b>0 & 유의 (크기가 함께 움직임)
+00:23:04 [INFO] 06_T1 | h=1 abs_d_k_entropy_h1       vs d2y_sq n=1205 피어슨=0.245(p=0.000) 스피어만=0.107(p=0.000)
+00:23:04 [INFO] 06_T1 | [T1abs h1 d2y_sq~abs_d_k_entropy_h1] N=1205, R²=0.060
+00:23:04 [INFO] 06_T1 |     abs_d_k_entropy_h1           b= 469.7633  se=171.8928  p=0.0063
+00:23:04 [INFO] 06_T1 | [판단] h=1 |Δentropy|: b=469.763, p=0.0063 → b>0 & 유의 (크기가 함께 움직임)
+00:23:04 [INFO] 06_T1 | h=2 abs_d_k_std_bp_h2        vs d2y_sq n=1206 피어슨=0.155(p=0.000) 스피어만=0.078(p=0.007)
+00:23:04 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_std_bp_h2] N=1206, R²=0.024
+00:23:04 [INFO] 06_T1 |     abs_d_k_std_bp_h2            b= 9.6050  se=5.5165  p=0.0817
+00:23:04 [INFO] 06_T1 | [판단] h=2 |Δstd_bp|: b=9.605, p=0.0817 → 기준 미충족
+00:23:04 [INFO] 06_T1 | h=2 abs_d_k_entropy_h2       vs d2y_sq n=1206 피어슨=0.225(p=0.000) 스피어만=0.095(p=0.001)
+00:23:04 [INFO] 06_T1 | [T1abs h2 d2y_sq~abs_d_k_entropy_h2] N=1206, R²=0.051
+00:23:04 [INFO] 06_T1 |     abs_d_k_entropy_h2           b= 359.5247  se=165.2615  p=0.0296
+00:23:04 [INFO] 06_T1 | [판단] h=2 |Δentropy|: b=359.525, p=0.0296 → b>0 & 유의 (크기가 함께 움직임)
+00:23:04 [INFO] 06_T1 | === STEP 06 (T1) 완료 ===
+00:23:04 [INFO] run_all | [4/5] ✔ 06 완료 (0.1초)
+00:23:04 [INFO] run_all | [5/5] ▶ 07 T5 Granger 선후행 시작
+00:23:04 [INFO] 07_T5 | === STEP 07 (T5): Granger 선후행 검정 시작 ===
+00:23:04 [INFO] 07_T5 | --- h=2: d_k_std_bp_h2 ↔ d_move | 사용 1200일 (결측 제거 7일)
+00:23:04 [INFO] 07_T5 |     ADF d_k_std_bp_h2: p=0.0000 (정상)
+00:23:04 [INFO] 07_T5 |     ADF d_move: p=0.0000 (정상)
+00:23:04 [INFO] 07_T5 |     선택 시차: BIC=3 (참고 AIC=8, HQIC=6) → 3
+00:23:04 [INFO] 07_T5 |     [주] d_k_std_bp_h2 → d_move: 시차 3, F=0.657, p=0.5787 
+00:23:04 [INFO] 07_T5 |     [주] d_move → d_k_std_bp_h2: 시차 3, F=1.889, p=0.1296 
+00:23:04 [INFO] 07_T5 |     [시차 민감도] Kalshi→MOVE: L1:0.610 L2:0.568 L3:0.579 L5:0.428 L10:0.578
+00:23:04 [INFO] 07_T5 |     [연도 제외, 시차 3] Kalshi→MOVE: 2022제외:0.531 2023제외:0.836 2024제외:0.632 2025제외:0.735 2026제외:0.044
+00:23:04 [INFO] 07_T5 |     [시차 민감도] MOVE→Kalshi: L1:0.026 L2:0.070 L3:0.130 L5:0.256 L10:0.203
+00:23:04 [INFO] 07_T5 |     [연도 제외, 시차 3] MOVE→Kalshi: 2022제외:0.347 2023제외:0.091 2024제외:0.112 2025제외:0.061 2026제외:0.451
+00:23:04 [INFO] 07_T5 | --- h=1: d_k_std_bp_h1 ↔ d_move | 사용 1195일 (결측 제거 12일)
+00:23:04 [INFO] 07_T5 |     ADF d_k_std_bp_h1: p=0.0000 (정상)
+00:23:04 [INFO] 07_T5 |     ADF d_move: p=0.0000 (정상)
+00:23:05 [INFO] 07_T5 |     선택 시차: BIC=3 (참고 AIC=8, HQIC=6) → 3
+00:23:05 [INFO] 07_T5 |     [주] d_k_std_bp_h1 → d_move: 시차 3, F=3.598, p=0.0132 ★유의
+00:23:05 [INFO] 07_T5 |     [주] d_move → d_k_std_bp_h1: 시차 3, F=0.944, p=0.4188 
+00:23:05 [INFO] 07_T5 |     [시차 민감도] Kalshi→MOVE: L1:0.986 L2:0.014 L3:0.013 L5:0.015 L10:0.071
+00:23:05 [INFO] 07_T5 |     [연도 제외, 시차 3] Kalshi→MOVE: 2022제외:0.009 2023제외:0.035 2024제외:0.067 2025제외:0.034 2026제외:0.039
+00:23:05 [INFO] 07_T5 |     [시차 민감도] MOVE→Kalshi: L1:0.166 L2:0.329 L3:0.419 L5:0.434 L10:0.055
+00:23:05 [INFO] 07_T5 |     [연도 제외, 시차 3] MOVE→Kalshi: 2022제외:0.943 2023제외:0.593 2024제외:0.153 2025제외:0.339 2026제외:0.310
+00:23:05 [INFO] 07_T5 | === STEP 07 (T5) 완료 ===
+00:23:05 [INFO] run_all | [5/5] ✔ 07 완료 (0.5초)
+00:23:05 [INFO] run_all | 전체 완료 (3.5초). 결과: /home/claude/fomcmove/outputs/utc
