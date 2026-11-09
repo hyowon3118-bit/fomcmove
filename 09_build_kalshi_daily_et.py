@@ -14,7 +14,7 @@
 
 분포 구성은 원저자 R 코드(convert_trade_level_data_cdfs.R)를 옮긴 kalshi_dkw.py 사용.
 FOMC 설정도 원본과 같음: strike_int=0.25, days_before_horizon=180, middle-out
-일별 집계(convert_to_daily, method='last')만 이 파일에서 기준 시각을 바꿔 직접 구현.
+일별 집계(convert_to_daily, method='last')만 이 파일에서 직접 구현: 기준 시각 변경 + 마지막 시각 동시 체결은 VWAP.
 
 ※ 오후 4시는 MOVE·DGS2 종가 시각의 근사치. DGS2·MOVE의 정확한 산출 시각은 확인 못 함 → CUTOFF_HOUR로 바꿀 수 있음
 """
@@ -81,10 +81,20 @@ outs = {}
 for mode in ["utc", f"et{CUTOFF_HOUR}"]:
     log.info(f"[2/4] [{mode}] 일별 집계 중...")
     t = tr.assign(date=assign_date(tr["created_time"], "utc" if mode == "utc" else "et"))
-    daily = (t.sort_values("created_time")
-              .groupby(["date", "contract_preamble", "strike"], as_index=False)
-              .agg(yes_price=("yes_price", "last"), daily_volume=("qty", "sum")))
-    log.info(f"  [{mode}] (날짜·계약·행사가) {len(daily):,}행")
+    # [수정] 마지막 체결 시각에 체결이 여러 개(가격도 제각각)인 경우가 있음 (구 FED- 계약에 많음)
+    #   R 원본은 파일 행 순서로 그중 하나를 고르게 돼 결과가 임의적 → 그 묶음의 거래량 가중 평균가(VWAP)를 씀
+    #   (원본 R의 convert_to_daily_method='VWAP'은 하루 전체 평균이라 다름. 여기선 마지막 시각 묶음에만 적용)
+    key = ["date", "contract_preamble", "strike"]
+    t["is_last"] = t["created_time"].eq(t.groupby(key)["created_time"].transform("max"))
+    lt = t[t["is_last"]].assign(pq=lambda x: x["yes_price"] * x["qty"])
+    last = lt.groupby(key).agg(pq=("pq", "sum"), q=("qty", "sum"), p_mean=("yes_price", "mean"),
+                               n_last=("yes_price", "size"), n_px=("yes_price", "nunique"))
+    last["yes_price"] = np.where(last["q"] > 0, last["pq"] / last["q"], last["p_mean"])
+    daily = (t.groupby(key).agg(daily_volume=("qty", "sum"))
+              .join(last[["yes_price", "n_last", "n_px"]]).reset_index())
+    log.info(f"  [{mode}] (날짜·계약·행사가) {len(daily):,}행, 마지막 시각에 가격이 2개 이상 → VWAP 처리 "
+             f"{(daily['n_px'] > 1).sum():,}행 ({(daily['n_px'] > 1).mean():.1%})")
+    daily = daily.drop(columns=["n_last", "n_px"])
     log.info(f"[3/4] [{mode}] 빈 날 채우기 → 단조성 보정(middle-out) → 구간 확률")
     d = K.fill_dataless_days(daily, HORIZON)
     d = K.clean_data(d, "middle-out")
