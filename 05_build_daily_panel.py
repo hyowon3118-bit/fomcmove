@@ -1,7 +1,7 @@
 """
-03_build_panels.py
-==================
-[역할] 검정(T1~T5)에 쓸 분석용 데이터셋 2개 생성.
+05_build_daily_panel.py
+=======================
+[역할] T1·T5에 쓸 일별 분석 데이터셋 생성.
   출력: outputs_verify/panel_daily.csv  — 일별 (T1, T5)
 
 변수 규칙 (계획서 2장 '변수 구성 규칙'):
@@ -13,8 +13,8 @@ import pandas as pd
 import config as C
 import utils as U
 
-log = C.get_logger("03_panels")
-log.info("=== STEP 03: 분석용 패널 생성 시작 ===")
+log = C.get_logger("05_panel")
+log.info("=== STEP 05: 분석용 패널 생성 시작 ===")
 HS = sorted({C.AUX_HORIZON, C.MAIN_HORIZON})
 
 # ------------------------------------------------------------------
@@ -79,4 +79,4 @@ daily.index.name = "date"
 daily.to_csv(C.OUT_DIR / "panel_daily.csv")
 log.info(f"panel_daily.csv 저장: {daily.shape}")
 
-log.info("=== STEP 03 완료 ===")
+log.info("=== STEP 05 완료 ===")

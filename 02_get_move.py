@@ -1,3 +1,4 @@
+# 02_get_move.py
 # [역할] Yahoo Finance에서 MOVE 지수(^MOVE) 일별 종가를 받아 MOVE.csv(Date, Close)로 저장
 # 설치: pip3 install yfinance
 import logging

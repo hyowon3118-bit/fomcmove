@@ -1,6 +1,6 @@
 """
-00b_get_fomc_dates.py
-=====================
+01_get_fomc_dates.py
+====================
 [역할] 연준 FOMC 캘린더 페이지에서 회의일을 가져와 data/fomc_dates.csv 생성.
   - 직접 스크래핑 코드를 짜지 않고 pyfedwatch의 get_fomc_data_fed() 사용
     (이 함수가 https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm 을 읽어
@@ -14,8 +14,8 @@ from pyfedwatch.datareader import get_fomc_data_fed
 
 import config as C
 
-log = C.get_logger("00b_fomc")
-log.info("=== STEP 00b: FOMC 회의일 수집 시작 ===")
+log = C.get_logger("01_fomc")
+log.info("=== STEP 01: FOMC 회의일 수집 시작 ===")
 
 # ------------------------------------------------------------------
 # [블록 1] Fed 캘린더 페이지 읽기
@@ -41,5 +41,5 @@ log.info(f"저장: {C.FILES['fomc']} ({len(sched)}건, {sched['date'].iloc[0]} ~
 if sched["date"].iloc[0] > "2021-07-31":
     log.warning("2021-07 회의가 없음 → 페이지에 안 나오는 과거 회의는 수동 추가 필요")
 if sched["date"].iloc[-1] < "2028-01-01":
-    log.warning("2028-01 회의가 없음 → 아직 일정 미발표일 수 있음. KXFED-28JAN 등은 00a에서 제외됨")
-log.info("=== STEP 00b 완료 ===")
+    log.warning("2028-01 회의가 없음 → 아직 일정 미발표일 수 있음. KXFED-28JAN 등은 03에서 제외됨")
+log.info("=== STEP 01 완료 ===")

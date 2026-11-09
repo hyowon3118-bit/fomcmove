@@ -1,6 +1,6 @@
 """
-08_t5_granger.py  —  T5. 선후행 관계 (Q1)
-========================================
+07_t5_granger.py  —  T5. 선후행 관계 (Q1)
+====================================
 [역할] Kalshi 분포 폭 변화와 MOVE 변화 사이의 예측 선후관계(Granger) 양방향 검정.
   쌍: ΔKalshi std ↔ ΔMOVE
   절차: (1) ADF 정상성 확인 → (2) VAR 정보기준(AIC)으로 시차 선택
@@ -16,8 +16,8 @@ from statsmodels.tsa.stattools import adfuller, grangercausalitytests
 
 import config as C
 
-log = C.get_logger("08_T5")
-log.info("=== STEP 08 (T5): Granger 인과 검정 시작 ===")
+log = C.get_logger("07_T5")
+log.info("=== STEP 07 (T5): Granger 인과 검정 시작 ===")
 
 # ------------------------------------------------------------------
 # [블록 1] 일별 패널 읽기
@@ -68,4 +68,4 @@ for a, b, h in pairs:
                      "adf_p_cause": adf[cause], "adf_p_effect": adf[effect]})
 
 pd.DataFrame(rows).to_csv(C.OUT_DIR / "t5_granger.csv", index=False)
-log.info("=== STEP 08 (T5) 완료 ===")
+log.info("=== STEP 07 (T5) 완료 ===")

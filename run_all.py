@@ -1,11 +1,11 @@
 """
 run_all.py
 ==========
-[역할] T1·T5에 필요한 단계(00a → 00 → 03 → 04 → 08)를 순서대로 실행. 단계마다 시작/종료/소요시간 로그 출력.
+[역할] T1·T5에 필요한 단계(03 → 07)를 순서대로 실행. 단계마다 시작/종료/소요시간 로그 출력.
   사용법:
     python run_all.py              # 전체 실행
-    python run_all.py --from 03    # 03단계부터 실행 (앞 단계 결과 파일이 있을 때)
-    python run_all.py --only 06    # 06단계만 실행
+    python run_all.py --from 05    # 05단계부터 실행 (앞 단계 결과 파일이 있을 때)
+    python run_all.py --only 06    # 06단계(T1)만 실행
 """
 import argparse
 import runpy
@@ -20,18 +20,19 @@ log = C.get_logger("run_all")
 # [블록 1] 실행 순서 정의
 # ------------------------------------------------------------------
 STEPS = [
-    ("00", "00a_build_kalshi_moments.py", "Kalshi 확률분포 → 모멘트 변환"),
-    ("00", "00_inspect_data.py",          "입력 파일 점검"),
-    ("03", "03_build_panels.py",          "분석 패널 생성"),
-    ("04", "04_t1_comovement.py",         "T1 일간 동조성"),
-    ("08", "08_t5_granger.py",            "T5 Granger"),
+    # 01·02(FOMC 일정·MOVE 수집)는 인터넷 접속이 필요해서 별도로 실행
+    ("03", "03_build_kalshi_moments.py", "Kalshi 확률분포 → 모멘트 변환"),
+    ("04", "04_check_inputs.py",         "입력 파일 점검"),
+    ("05", "05_build_daily_panel.py",    "일별 분석 패널 생성"),
+    ("06", "06_t1_comovement.py",        "T1 일간 동조성"),
+    ("07", "07_t5_granger.py",           "T5 Granger 선후행"),
 ]
 
 # ------------------------------------------------------------------
 # [블록 2] 실행 범위 인자 처리
 # ------------------------------------------------------------------
 ap = argparse.ArgumentParser()
-ap.add_argument("--from", dest="start", default="00")
+ap.add_argument("--from", dest="start", default="03")
 ap.add_argument("--only", default=None)
 args = ap.parse_args()
 todo = [s for s in STEPS if (s[0] == args.only if args.only else s[0] >= args.start)]

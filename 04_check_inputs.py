@@ -1,5 +1,5 @@
 """
-00_inspect_data.py
+04_check_inputs.py
 ==================
 [역할] 분석 전 사전 점검. 각 입력 파일이 있는지, 실제 컬럼명이 뭔지 출력.
        config.py 의 '확인 필요' 컬럼명을 실제 이름으로 맞추는 데 사용.
@@ -9,12 +9,12 @@ import pandas as pd
 
 import config as C
 
-log = C.get_logger("00_inspect")
+log = C.get_logger("04_check")
 
 # ------------------------------------------------------------------
 # [블록 1] 파일 존재 여부 확인
 # ------------------------------------------------------------------
-log.info("=== STEP 00: 입력 파일 점검 시작 ===")
+log.info("=== STEP 04: 입력 파일 점검 시작 ===")
 for key, path in C.FILES.items():
     status = "OK" if path.exists() else "없음"
     log.info(f"{key:<10} {status:<4} {path.name}")
@@ -31,4 +31,4 @@ for key, path in C.FILES.items():
     log.info(f"[{key}] 첫 행: {df.iloc[0].to_dict()}")
 
 
-log.info("=== STEP 00 완료: 위 컬럼명을 보고 config.py 수정 ===")
+log.info("=== STEP 04 완료: 위 컬럼명을 보고 config.py 수정 ===")

@@ -1,6 +1,6 @@
 """
-04_t1_comovement.py  —  T1. 일간 동조성 (Q1)
-===========================================
+06_t1_comovement.py  —  T1. 일간 동조성 (Q1)
+=======================================
 [역할] Kalshi 분포 폭 변화가 2년물 변동성·MOVE 변화와 같은 날 함께 움직이는지 검정.
   변수: ΔKalshi std, ΔKalshi entropy  ↔  ΔMOVE, Δ2Y²
   방법: (1) 상관계수(피어슨·스피어만)  (2) OLS (차분 변수, A4)
@@ -13,8 +13,8 @@ from scipy import stats
 import config as C
 import utils as U
 
-log = C.get_logger("04_T1")
-log.info("=== STEP 04 (T1): 일간 동조성 검정 시작 ===")
+log = C.get_logger("06_T1")
+log.info("=== STEP 06 (T1): 일간 동조성 검정 시작 ===")
 
 # ------------------------------------------------------------------
 # [블록 1] 일별 패널 읽기
@@ -91,4 +91,4 @@ for h in HS:
         log.info(f"[판단] h={h} |Δ{v}|: b={b:.3f}, p={pb:.4f} → {'b>0 & 유의 (크기가 함께 움직임)' if ok else '기준 미충족'}")
 
 pd.concat(abs_rows).to_csv(C.OUT_DIR / "t1_abs.csv", index=False)
-log.info("=== STEP 04 (T1) 완료 ===")
+log.info("=== STEP 06 (T1) 완료 ===")

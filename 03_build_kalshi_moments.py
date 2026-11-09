@@ -1,6 +1,6 @@
 """
-00a_build_kalshi_moments.py
-===========================
+03_build_kalshi_moments.py
+==========================
 [역할] 연준 R 코드 출력(daily_distributions_fed_levels.csv, 확률분포)을
        분석용 모멘트 파일(kalshi_fomc_moments.csv)로 변환.
   입력: data/daily_distributions_fed_levels.csv, data/fomc_dates.csv
@@ -19,8 +19,8 @@ import pandas as pd
 import config as C
 import utils as U
 
-log = C.get_logger("00a_kalshi")
-log.info("=== STEP 00a: Kalshi 확률분포 → 모멘트 변환 시작 ===")
+log = C.get_logger("03_kalshi")
+log.info("=== STEP 03: Kalshi 확률분포 → 모멘트 변환 시작 ===")
 
 SRC = C.DATA_DIR / "daily_distributions_fed_levels.csv"
 MONTHS = {m: i for i, m in enumerate(
@@ -85,4 +85,4 @@ log.info(f"std_bp 요약: 평균 {mom['std_bp'].mean():.2f}, 중앙값 {mom['std
 
 mom.to_csv(C.FILES["kalshi"], index=False)
 log.info(f"저장: {C.FILES['kalshi'].name}")
-log.info("=== STEP 00a 완료 ===")
+log.info("=== STEP 03 완료 ===")

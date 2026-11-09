@@ -8,7 +8,7 @@ config.py
   - 로그 설정
 
 ※ "확인 필요"로 표시된 컬럼명은 공식 문서에서 이름을 확인하지 못한 것.
-   00_inspect_data.py 를 먼저 실행해서 실제 컬럼명을 보고 맞춰야 함.
+   04_check_inputs.py 를 먼저 실행해서 실제 컬럼명을 보고 맞춰야 함.
 """
 import logging
 import os
