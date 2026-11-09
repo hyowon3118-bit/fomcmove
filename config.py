@@ -23,14 +23,21 @@ from pathlib import Path
 # ------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("FOMC_DATA_DIR", ROOT))   # 기본: 스크립트와 같은 폴더. 다른 곳이면 FOMC_DATA_DIR로 지정
-OUT_DIR = ROOT / "outputs_verify"
+# Kalshi 일별 가격 기준 시각 (09_build_kalshi_daily_et.py 참고)
+#   ""   : 기존 R 출력 daily_distributions_fed_levels.csv 사용 (UTC 기준)
+#   "utc": 09가 만든 UTC 기준 파일,  "et16": 09가 만든 동부시간 오후 4시 기준 파일
+#   실행 예: KALSHI_TIMING=et16 python3 run_all.py  → 결과는 outputs_verify_et16/
+KALSHI_TIMING = os.environ.get("KALSHI_TIMING", "")
+KALSHI_DIST_FILE = DATA_DIR / (f"daily_distributions_fed_levels_{KALSHI_TIMING}.csv" if KALSHI_TIMING
+                               else "daily_distributions_fed_levels.csv")
+OUT_DIR = ROOT / ("outputs_verify" + (f"_{KALSHI_TIMING}" if KALSHI_TIMING else ""))
 OUT_DIR.mkdir(exist_ok=True)
 
 # ------------------------------------------------------------------
 # 2. 입력 파일명 (계획서 2장 데이터 번호와 대응)
 # ------------------------------------------------------------------
 FILES = {
-    "kalshi":     DATA_DIR / "kalshi_fomc_moments.csv",   # #1 Kalshi 분포 모멘트 (R 코드 outputs/ 결과를 합친 파일)
+    "kalshi":     OUT_DIR / "kalshi_fomc_moments.csv",    # #1 Kalshi 분포 모멘트 (03이 KALSHI_DIST_FILE로 생성)
     "fomc":       DATA_DIR / "fomc_dates.csv",            # #2 FOMC 회의일 (정례회의). 2021-07부터 넣어야 함:
                                                           #    pyfedwatch가 관측일 이전 '비FOMC 월'을 찾기 때문 (테스트에서 2021-12 시작 시 2022-01 관측일 실패 확인)
     "dgs2":       DATA_DIR / "DGS2.csv",                  # #3 FRED DGS2

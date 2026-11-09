@@ -22,7 +22,7 @@ import utils as U
 log = C.get_logger("03_kalshi")
 log.info("=== STEP 03: Kalshi 확률분포 → 모멘트 변환 시작 ===")
 
-SRC = C.DATA_DIR / "daily_distributions_fed_levels.csv"
+SRC = C.KALSHI_DIST_FILE                 # config.KALSHI_TIMING에 따라 기존 R 출력 / utc / et16
 MONTHS = {m: i for i, m in enumerate(
     ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"], 1)}
 
@@ -31,6 +31,7 @@ MONTHS = {m: i for i, m in enumerate(
 # ------------------------------------------------------------------
 raw = pd.read_csv(SRC, parse_dates=["date"])
 raw["p"] = raw["probability"] / 100
+log.info(f"입력 {SRC.name}")
 log.info(f"원자료 {len(raw):,}행, 계약 {raw['contract_preamble'].nunique()}개, "
          f"{raw['date'].min().date()} ~ {raw['date'].max().date()}")
 
